@@ -6,7 +6,7 @@
 
 姓名： 姚义香
 
-Github地址：<https://github.com/yourusername/python_course>
+Github地址：<https://github.com/blmeue/Python_resources.git>
 
 ---
 
@@ -84,7 +84,7 @@ git push origin main
 
 访问[learngitbranching.js.org](https://learngitbranching.js.org)，如下图所示完成Main部分的Introduction Sequence和Ramping Up两个小节的学习。
 
-![Learngitbranching.js.org]("\img\2023-07-28-21-07-40.png")
+![learngitbranching.js.org](img/experiments-1.png)
 
 上面你学习到的git命令基本上可以应付百分之九十以上的日常使用，如果你想继续深入学习git，可以：
 
@@ -105,45 +105,134 @@ git push origin main
 
 ## 实验过程与结果
 
-请将实验过程中编写的代码和运行结果放在这里，注意代码需要使用markdown的代码块格式化，例如Git命令行语句应该使用下面的格式：
+1. 执行两次"go commit"命令  
+   (1) 显示效果:
 
-![Git命令](/Experiments/img/2023-07-26-22-48.png)
+   ![Git命令](img/experiments-1-1.png)
 
-显示效果如下：
+   (2) 实验代码:
 
-```bash
-git init
-git add .
-git status
-git commit -m "first commit"
-```
+    ```bash
+     git commit
+     git commit
+    ```
 
-如果是Python代码，应该使用下面代码块格式，例如：
+2. 用'git branch <分支名>'来创建分支，用'git checkout <分支名>'来切换分支
 
-![Python代码](/Experiments/img/2023-07-26-22-52-20.png)
+   (1) 显示效果:
 
-显示效果如下：
+   ![Git命令](img/experiements-2-1.png)
 
-```python
-def add_binary(a,b):
-    return bin(a+b)[2:]
-```
+   (2) 实验代码:
 
-代码运行结果的文本可以直接粘贴在这里。
+    ```bash
+    git branch bugFix
+    git checkout bugFix
+    ```
 
-**注意：不要使用截图，Markdown文档转换为Pdf格式后，截图可能会无法显示。**
+3. 把bugFix合并到main里  
+   (1) 显示效果:
+
+   ![Git命令](img/experiments-3-0.png)~
+
+   (2) 实验代码:
+
+   ```bash
+    git branch bugFix
+    git checkout bugFix
+    git commit
+    git checkout main
+    git commit
+    git merge bugFix
+    ```
+
+4. 把bugFix分支里面的工作直接移到main分支上  
+   (1) 实验效果图:
+
+   ![Git命令](img/experiments-4-0.png)
+
+   (2)实验代码如下:
+
+   ```bash
+    git branch bugFix
+    git checkout bugFix
+    git commit
+    git checkout main
+    git commit
+    git checkout bugFix
+    git rebase main
+    ```
+
+5. 分离的HEAD  
+   (1) 实验效果图:
+
+    ![Git命令](img/experiments-5-0.png)
+
+   (2) 实验代码如下:
+
+   ```bash
+    git checkout c4
+    ```
+
+6. 用HEAD在提交树中向上移动几次  
+   (1) 实验效果图:
+
+   ![Git命令](img/experiments-6-0.png)
+
+   (2)实验代码如下:
+
+   ```bash
+    git checkout c3
+    ```
+
+7. 通过'git branch -f' 命令移动main、bugFix、HEAD到目标所示位置
+
+   (1) 实验效果图:
+
+   ![Git命令](img/experiments-7-0.png)
+
+   (2)实验代码:
+
+   ```bash
+    git checkout c4
+    git branch -f main c6
+    git checkout c5
+    git branch -f bugFix c0
+    git checkout c1
+    ```
+
+8. 分别撤销local分支和pushed分支上的最近一次提交
+   
+   (1) 实验效果图:
+
+   ![Git命令](img/experiments-8-0.png)
+
+   (2) 实验代码:
+
+   ```bash
+    git checkout pushed
+    git revert pushed
+    git checkout local
+    git branch -f local c1
+    ```
 
 ## 实验考查
 
 请使用自己的语言回答下面的问题，这些问题将在实验检查时用于提问和答辩，并要求进行实际的操作。
 
-1. 什么是版本控制？使用Git作为版本控制软件有什么优点？
-2. 如何使用Git撤销还没有Commit的修改？如何使用Git检出（Checkout）已经以前的Commit？（实际操作）
-3. Git中的HEAD是什么？如何让HEAD处于detached HEAD状态？（实际操作）
-4. 什么是分支（Branch）？如何创建分支？如何切换分支？（实际操作）
-5. 如何合并分支？git merge和git rebase的区别在哪里？（实际操作）
-6. 如何在Markdown格式的文本中使用标题、数字列表、无序列表和超链接？（实际操作）
+1. 什么是版本控制？使用Git作为版本控制软件有什么优点？  
+   答：(1)版本控制是一种在开发过程中用于管理我们对文件、目录或工程等内容的修改历史，方便查看更改历史记录，备份以便恢复以前的版本软件工程技术。这使得开发团队可以轻松地跟踪和管理代码的更改，同时还可以方便地回滚到任何一个版本。(2)优点：分布式、速度快、强大的分支管理、可追溯性、安全性、支持大规模开发。
+2. 如何使用Git撤销还没有Commit的修改？如何使用Git检出（Checkout）已经以前的Commit？（实际操作）  
+   答：撤销:使用git checkout命令取消特定文件的修改:git checkout --filename;使用git reset命令取消所有文件的修改：git reset HEAD。检测以前的commit:首先，通过git log命令查看提交历史的commit id，然后使用以下命令检出到指定的commit：
+3. Git中的HEAD是什么？如何让HEAD处于detached HEAD状态？（实际操作）  
+   答：Git中的HEAD是一个指针，它指向当前所在的分支的最新提交或者分支。可以通过以下步骤让HEAD处于detached HEAD状态：(1)使用git log命令查看提交历史，并找到你想要检出的特定提交的commit ID或哈希值。(2)然后，使用git checkout命令检出到该提交，而不是分支：git checkout <commit-ID> (3)将HEAD置于detached HEAD状态。你可以通过运行git status命令来确认,如果看到输出中的"HEAD detached at <commit-ID>"，那么你已经成功地将HEAD置于detached HEAD状态
+4. 什么是分支（Branch）？如何创建分支？如何切换分支？（实际操作）  
+   答：在Git中，分支是指从主线上分离出来进行另外的操作，既不影响主线，主线又可以继续进行。它可用来解决临时需求，当分支的任务完成后可以合并到主线上，而分支的任务完成可以删掉。在命令行中，使用git branch命令可以创建一个分支。在命令行中，使用git checkout命令可以切换到指定的分支。
+5. 如何合并分支？git merge和git rebase的区别在哪里？（实际操作）  
+   答：(1)合并分支：在Git中合并分支有两种常见的方法：git merge和git rebase。git merge的合并原理是找到两个分支的最近公共祖先，然后将指定分支在公共祖先之后的所有提交合并到当前分支上。这种方式的合并结果通常是一个新的提交，它包含了两个分支的差异。而git rebase则是另一种合并分支的方式，它的工作原理是将当前分支的提交记录迁移到目标分支上，并形成一个新的提交。这种方式的合并结果通常是一条连续的提交记录，它保留了分支的历史记录。(2)区别：git merge和git rebase的主要区别在于它们处理分支的方式。git merge会将指定分支的新提交和当前分支的新提交合并，生成一个新的提交。而git rebase则是将当前分支的新提交应用到目标分支上，生成一个新的提交，并将原分支上的提交删除。也就是说，如果使用git merge，两个分支的提交历史都会被保留；而如果使用git rebase，那么原分支的提交历史将会被删除。
+6. 如何在Markdown格式的文本中使用标题、数字列表、无序列表和超链接？（实际操作）  
+   答：(1)创建标题:你可以使用井号(#)来创建不同级别的标题。#的个数表示标题的级别。(2)创建数字列表:你可以在列表项前面添加数字，并以空格或制表符进行缩进。(3)创建无序列表:在无序列表中，你可以使用短横线(-)、加号(+)或星号(*)来标记列表项。(4)创建超链接:你可以使用方括号来创建超链接，方括号中的内容会被视为链接的名称，而圆括号的内容会被视为链接的地址。
 
 ## 实验总结
 
-总结一下这次实验你学习和使用到的知识，例如：编程工具的使用、数据结构、程序语言的语法、算法、编程技巧、编程思想。
+在本次实验过程中，我学会了如何将github仓库里的东西克隆、更新到本地仓库中，以及如何将本地仓库里的东西更新上传到github仓库中。与此同时，还学会和掌握了一些gitmanage命令，如git commit、git checkout、git rebase等。
