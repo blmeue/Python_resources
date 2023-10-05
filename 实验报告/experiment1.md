@@ -202,7 +202,7 @@ git push origin main
     ```
 
 8. 分别撤销local分支和pushed分支上的最近一次提交
-   
+
    (1) 实验效果图:
 
    ![Git命令](img/experiments-8-0.png)

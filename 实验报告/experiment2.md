@@ -142,6 +142,382 @@ flowchart LR
 请将实验过程与结果放在这里，包括：
 
 - [第二部分 Python变量、简单数据类型和列表简介](#第二部分)
+  1. 练习2.1: 简单消息    
+        (1) 实验代码：
+
+        ```python
+        message="hello world"
+        print(message)
+        ```
+
+        （2）实验结果：  
+
+        hello world
+
+  2. 练习2.2：多条简单消息  
+
+        (1) 实验代码：
+
+        ```python
+        message="hello world"
+        print(message)
+        message="how are you"
+        print(message)
+        ```
+
+        (2) 实验结果：
+
+        hello world  
+        how are you?
+
+  3. 练习2.3：个性化消息  
+        (1) 实验代码：
+
+        ```python
+        name="Eric"
+        message=f"Hello {name},would you like to learn some Python today?"
+        print(message)
+        ```
+
+        (2) 实验结果：
+
+        Hello Eric,would you like to learn some Python today?
+
+  4. 练习2.4：调整名字的大小写  
+        (1) 实验代码：
+
+        ```python
+        name='eRic'
+        print(name.lower())
+        print(name.upper())
+        print(name.title())
+        ```
+
+        (2) 实验结果：
+
+        eric  
+        ERIC  
+        Eric
+
+  5. 练习2.5： 名言1  
+        (1) 实验代码：
+
+        ```python
+        name="Albert Einstein"
+        saying = "A person who never made a mistake never tried anything new."
+        print(f"{name}: \"{saying }\" ")
+        ```
+
+        (2) 实验结果：
+
+        Albert Einstein: "A person who never made a mistake never tried anything new."
+
+  6. 练习2.6： 名言2  
+        (1) 实验代码：
+
+        ```python
+        famous_person="Albert Einstein"
+        famous_saying = "A person who never made a mistake never tried anything new."
+        message=f"{famous_person}: \"{famous_saying }\" "
+        print(message)
+        ```
+
+        (2) 实验结果：
+
+        Albert Einstein: "A person who never made a mistake never tried anything new."
+
+  7. 练习2.7：删除人名中的空白  
+        (1) 实验代码：
+
+        ```python
+        name="\t   Eric  \n "
+        print(name.lstrip())
+        print(name.rstrip())
+        print(name.strip())
+        ```
+
+        (2) 实验结果：
+
+        ![experiments](img/2.7.png)
+
+  8. 练习2.8：文件扩展名  
+        (1) 实验代码：
+
+        ```python
+        filename='python_notes.txt'
+        print(filename.removesuffix('.txt'))
+        ```
+
+        (2) 实验结果：
+
+        python_notes
+
+  9. 练习2.9：数字8  
+        (1) 实验代码：
+
+        ```python
+        print(5+3)
+        print(10-2)
+        print(4*2)
+        print(16/2)
+        ```
+
+        (2) 实验结果：
+
+        8  
+        8  
+        8  
+        8.0
+
+  10. 练习2.10：最喜欢的数  
+        (1) 实验代码：
+
+        ```python
+        number=10
+        print(f"My favorite number is {number}")
+        ```
+
+        (2) 实验结果：
+
+        My favorite number is 10
+
+  11. 练习3.1：姓名  
+        (1) 实验代码：
+
+        ```python
+        names=["Albert","Einstein","Marie","Curie","Tsung-Dao","Lee"]
+        for name in names:
+            print(name)
+        ```
+
+        (2) 实验结果：
+
+        Albert  
+        Einstein  
+        Marie  
+        Curie  
+        Tsung-Dao  
+        Lee  
+
+  12. 练习3.2：问候语  
+        (1) 实验代码：
+
+        ```python
+        for name in names:
+        print(f"{name},how are you?")
+        ```
+
+        (2) 实验结果：
+
+        Albert,how are you?  
+        Einstein,how are you?  
+        Marie,how are you?  
+        Curie,how are you?  
+        Tsung-Dao,how are you?  
+        Lee,how are you?  
+
+  13. 练习3.3：自己的列表  
+        (1) 实验代码：
+
+        ```python
+        ways=["Honda motorcycle","car"]
+        for way in ways:
+            print(f"I would like to own a {way}.")
+        ```
+
+        (2) 实验结果：
+
+        I would like to own a Honda motorcycle.  
+        I would like to own a car.
+
+  14. 练习3.4：嘉宾名单  
+        (1) 实验代码：
+
+        ```python
+        guests=["Albert","Einstein","Marie"]
+        for person in guests:
+            print(f"{person},please come to my dinner")
+        ```
+
+        (2) 实验结果：
+
+        Albert,please come to my dinner  
+        Einstein,please come to my dinner  
+        Marie,please come to my dinner  
+
+  15. 练习3.5：修改嘉宾名单  
+        (1) 实验代码：
+
+        ```python
+        cannot_attend="Albert"
+        guests=["Albert","Einstein","Marie"]
+        print(f"Sorry to hear that {cannot_attend} can not attend")
+        new_guest="Mary"
+        guests[guests.index(cannot_attend)]=new_guest
+        for guest in guests:
+            print(f"{guest},please come to my dinner")
+        ```
+
+        (2) 实验结果：
+
+        Sorry to hear that Albert can not attend  
+        Mary,please come to my dinner  
+        Einstein,please come to my dinner  
+        Marie,please come to my dinner  
+
+  16. 练习3.6：添加嘉宾名单  
+        (1) 实验代码：
+
+        ```python
+        print("I found a bigger table")
+        guests=["Albert","Einstein","Marie"]
+        guests.insert(0,"Jane")#在列表开头添加元素
+        guests.insert(2,"Mary")#在列表中间添加元素
+        guests.append("Jack")#在列表末尾添加元素
+        for guest in guests:
+            print(f"{guest},please come to my dinner")
+        ```
+
+        (2) 实验结果：
+
+        I found a bigger table  
+        Jane,please come to my dinner  
+        Albert,please come to my dinner  
+        Mary,please come to my dinner  
+        Einstein,please come to my dinner  
+        Marie,please come to my dinner  
+        Jack,please come to my dinner
+
+  17. 练习3.7：缩短名单  
+        (1) 实验代码：
+
+        ```python
+        print("Sorry!I can only invite two guests")
+        guests=["Jane","Albert","Mary","Einstein","Marie","Jack"]
+        while len(guests)>2:
+            print(f"Sorry {guests.pop()},I can not invite you")
+        for guest in guests:
+            print(f"Dear {guest}, You are still invited to my dinner!")
+        del guests[:]#删除列表里面所有的元素
+        print(guests)
+        ```
+
+        (2) 实验结果：
+
+        Sorry!I can only invite two guests  
+        Sorry Jack,I can not invite you  
+        Sorry Marie,I can not invite you  
+        Sorry Einstein,I can not invite you  
+        Sorry Mary,I can not invite you  
+        Dear Jane, You are still invited to my dinner!  
+        Dear Albert, You are still invited to my dinner!  
+        []
+
+  18. 练习3.8：放眼世界  
+        (1) 实验代码：
+
+        ```python
+        cities=["Beijing","Shanghai","Guangzhou","Shenzhen","HongKong","Macao"]
+        print(cities)
+        print(sorted(cities))#使用sorted()按字母顺序打印这个列表
+        print(cities)
+        print(sorted(cities,reverse=True))#使用sorted()按字母顺序相反的顺序打印这个列表
+        print(cities)
+        cities.reverse()#修改列表元素的排列顺序,反转列表元素的排列顺序
+        print(cities)
+        cities.reverse()#再次修改列表元素的排列顺序。打印该列表，核实排列顺序又恢复到原来的排序列表
+        print(cities)
+        cities.sort()#修改该列表，使其元素按字母顺序排列
+        print(cities)
+        cities.sort(reverse=True)#修改该列表，使其元素按与字母顺序相反的顺序排列
+        print(cities)
+        ```
+
+        (2) 实验结果：
+
+        ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']  
+        ['Beijing', 'Guangzhou', 'HongKong', 'Macao', 'Shanghai', 'Shenzhen']  
+        ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']  
+        ['Shenzhen', 'Shanghai', 'Macao', 'HongKong', 'Guangzhou', 'Beijing']  
+        ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']  
+        ['Macao', 'HongKong', 'Shenzhen', 'Guangzhou', 'Shanghai', 'Beijing']  
+        ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']  
+        ['Beijing', 'Guangzhou', 'HongKong', 'Macao', 'Shanghai', 'Shenzhen']  
+        ['Shenzhen', 'Shanghai', 'Macao', 'HongKong', 'Guangzhou', 'Beijing']
+
+  19. 练习3.9：晚餐嘉宾  
+        (1) 实验代码：
+
+        ```python
+        guests=["Jane","Albert","Mary","Einstein","Marie","Jack"]#练习3.6邀请的嘉宾
+        print(f"You have invited {len(guests)} guests to have dinner")
+        ```
+
+        (2) 实验结果：
+
+        You have invited 6 guests to have dinner
+
+  20. 练习3.10：尝试使用各个函数  
+        (1) 实验代码：
+
+        ```python
+        lists=["Mountains","Rivers","Country","City","Language","Love"]
+        print(f"The number of lists is {len(lists)}!")#队列长度
+        print(sorted(lists))#按照字母顺进行打印
+        print(sorted(lists,reverse=True))#使用sorted函数对列表按照字母顺序相反的顺序进行打印
+        lists.reverse()#利用reverse()函数反省打印列表
+        print(lists)
+        lists.sort()#sort()方法按字母升序排序
+        print(lists)
+        lists.sort(reverse=True)#sort(reverse=True)方法按字母降序排序
+        print(lists)
+        lists.remove("Love")#删除Love
+        print(lists)
+        lists.pop(2)#pop(i)删除位置i的元素
+        print(lists)
+        lists.pop()#删除列表末尾元素
+        print(lists)
+        del lists[1]#删除第二个元素
+        print(lists)
+        lists.append('Mountain')#在列表末尾添加元素
+        print(lists)
+        lists.insert(1,'Stars')#在列表任意位置插入元素
+        print(lists)
+        lists[1]='Animal'#修改列表元素
+        print(lists)
+        ```
+
+        (2) 实验结果：
+
+        The number of lists is 6!  
+        ['City', 'Country', 'Language', 'Love', 'Mountains', 'Rivers']  
+        ['Rivers', 'Mountains', 'Love', 'Language', 'Country', 'City']  
+        ['Love', 'Language', 'City', 'Country', 'Rivers', 'Mountains']  
+        ['City', 'Country', 'Language', 'Love', 'Mountains', 'Rivers']  
+        ['Rivers', 'Mountains', 'Love', 'Language', 'Country', 'City']  
+        ['Rivers', 'Mountains', 'Language', 'Country', 'City']  
+        ['Rivers', 'Mountains', 'Country', 'City']  
+        ['Rivers', 'Mountains', 'Country']  
+        ['Rivers', 'Country']  
+        ['Rivers', 'Country', 'Mountain']  
+        ['Rivers', 'Stars', 'Country', 'Mountain']  
+        ['Rivers', 'Animal', 'Country', 'Mountain']
+
+  21. 练习3.11：有意引发错误  
+        (1) 实验代码：
+
+        ```python
+        my_list=[1,2,3,4,5]
+        #试图访问列表中第七个元素，这个将引发索引错误
+        #print(my_list[6])
+        #修改后
+        print(my_list[4])
+        ```
+
+        (2) 实验结果：
+
+        5
+
 - [第三部分 Codewars Kata挑战](#第三部分)
   
   1. 第1题：求离整数n最近的平方数（Find Nearest square number）
@@ -206,51 +582,31 @@ flowchart LR
 
 - [第四部分 使用Mermaid绘制程序流程图](#第四部分)
 
-注意代码需要使用markdown的代码块格式化，例如Git命令行语句应该使用下面的格式：
-
-![Git命令](/Experiments/img/2023-07-26-22-48.png)
-
-显示效果如下：
-
-```bash
-git init
-git add .
-git status
-git commit -m "first commit"
+```mermaid
+flowchart TD
+  A[Number] --> B{是偶数?}
+  B -->|yes| C[Even]
+  B -->|no| D[Odd]
+  C --> E[End]
+  D --> E
 ```
-
-如果是Python代码，应该使用下面代码块格式，例如：
-
-![Python代码](/Experiments/img/2023-07-26-22-52-20.png)
-
-显示效果如下：
-
-```python
-def add_binary(a,b):
-    return bin(a+b)[2:]
-```
-
-代码运行结果的文本可以直接粘贴在这里。
-
-**注意：不要使用截图，Markdown文档转换为Pdf格式后，截图可能会无法显示。**
 
 ## 实验考查
 
 请使用自己的语言并使用尽量简短代码示例回答下面的问题，这些问题将在实验检查时用于提问和答辩以及实际的操作。
 
-1. Python中的简单数据类型有那些？我们可以对这些数据类型做哪些操作？
-   答：(1) 简单数据类型：整型、浮点型、布尔型、字符串、空值。
+1. Python中的简单数据类型有那些？我们可以对这些数据类型做哪些操作？  
+   答：(1) 简单数据类型：整型、浮点型、布尔型、字符串、空值。  
        (2) 操作：算术运算、比较运算、逻辑运算、成员运算、身份运算、位运算、赋值运算、运算符
-2. 为什么说Python中的变量都是标签？
+2. 为什么说Python中的变量都是标签？  
    答：在Python中，变量被视为标签，这是因为变量实际上是指向存储在内存中的对象的引用。换句话说，变量本身并不存储值，而是存储了对值的引用。
-3. 有哪些方法可以提高Python代码的可读性？
-   答：(1) 合理使用空格。
-       (2) 合理使用注释。
-       (3) 合理使用缩进。
-       (4) 合理使用换行。
-       (5) 合理使用有意义的函数名、变量名、类名。
-
+3. 有哪些方法可以提高Python代码的可读性？  
+   答 (1) 合理使用空格。  
+       (2) 合理使用注释。  
+       (3) 合理使用缩进。  
+       (4) 合理使用换行。  
+       (5) 合理使用有意义的函数名、变量名、类名。  
 
 ## 实验总结
 
-在本次的实验过程中，我更加熟练的掌握了Python语言的语法，对Python语言的特性有了更深的理解。同时也更加熟悉Visual Studio Code的使用，能够熟练的进行代码的编写和调试。
+在本次的实验过程中，我更加熟练的掌握了Python语言的语法，理解到更多的python函数，对python变量的操作更加熟练，也对Python语言的特性有了更深的理解。同时也更加熟悉Visual Studio Code的使用，能够熟练的进行代码的编写和调试。
