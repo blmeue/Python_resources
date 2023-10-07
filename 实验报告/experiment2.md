@@ -529,8 +529,19 @@ flowchart LR
             return round(n**0.5,0)**2
         ```
 
-        (2) 实验结果:
-        ![Nearest](img/Nearest.png)
+        (2) 实验结果:  
+            Test Results:  
+            Fixed Tests  
+            Basic Test Cases  
+            (5 of 5 Assertions)  
+            Completed in 0.12ms  
+            Random Tests  
+            Small Random Tests  
+            (100 of 100 Assertions)  
+            Big Random Tests  
+            (1000 of 1000 Assertions)  
+            Completed in 17.22ms  
+            You have passed all of the tests! :)  
 
   2. 第2题：弹跳的球（Bouncing Balls）
 
@@ -549,8 +560,15 @@ flowchart LR
             return -1
         ```
 
-        (2) 实验结果:
-        ![Bouncing](img/Bouncing%20Balls.png)
+        (2) 实验结果:  
+            Test Results:  
+            Tests  
+            Fixed Tests  
+            (11 of 11 Assertions)  
+            Random tests  
+            (50 of 50 Assertions)  
+            Completed in 2.71ms  
+            You have passed all of the tests! :)  
 
   3. 第3题： 元音统计(Vowel Count)
 
@@ -563,8 +581,20 @@ flowchart LR
             pass
         ```
 
-        (2)实验结果:
-        ![Vowel](img/Vowel%20Count.png)
+        (2)实验结果:  
+            Test Results:  
+            Sample tests  
+            Should count all vowels  
+            Should not count "y"  
+            Should return 0 when no vowels  
+            Should return 0 for empty string  
+            Should return 5 for "abracadabra"  
+            Completed in 0.22ms  
+            Random tests  
+            Random tests  
+            (100 of 100 Assertions)  
+            Completed in 11.10ms  
+            You have passed all of the tests! :)  
 
   4. 第4题：偶数或者奇数（Even or Odd）
 
@@ -577,8 +607,14 @@ flowchart LR
             return "Odd"
         ```
 
-        (2) 实验结果:
-        ![Even](img/Even%20or%20Odd.png)
+        (2) 实验结果:  
+            Test Results:  
+            Fixed Tests  
+            Basic Test Cases  
+            (11 of 11 Assertions)  
+            Completed in 0.23ms  
+            Random Tests  
+            You have passed all of the tests! :)
 
 - [第四部分 使用Mermaid绘制程序流程图](#第四部分)
 
