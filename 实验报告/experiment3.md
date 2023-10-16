@@ -226,7 +226,8 @@ flowchart LR
   Curie
   Tsung-Dao
   Lee
-  2.练习3.2：问候语
+
+  2.练习3.2：问候语  
   (1) 实验代码：
 
   ```python
@@ -236,13 +237,13 @@ flowchart LR
   ```
 
   (2) 实验结果：
-  Albert,how are you?
-  Einstein,how are you?
-  Marie,how are you?
-  Curie,how are you?
-  Tsung-Dao,how are you?
-  Lee,how are you?
-  3.练习3.3：自己的列表
+  Albert,how are you?  
+  Einstein,how are you?  
+  Marie,how are you?  
+  Curie,how are you?  
+  Tsung-Dao,how are you?  
+  Lee,how are you?  
+  3.练习3.3：自己的列表  
   (1) 实验代码：
 
   ```python
@@ -251,10 +252,10 @@ flowchart LR
       print(f"I would like to own a {way}.")
   ```
 
-  (2) 实验结果：
-  I would like to own a Honda motorcycle.
-  I would like to own a car.
-  4.练习3.4：嘉宾名单
+  (2) 实验结果：  
+  I would like to own a Honda motorcycle.  
+  I would like to own a car.  
+  4.练习3.4：嘉宾名单  
   (1) 实验代码：
 
   ```python
@@ -263,12 +264,12 @@ flowchart LR
       print(f"{person},please come to my dinner")
   ```
 
-  (2) 实验结果：
-  Albert,please come to my dinner
-  Einstein,please come to my dinner
-  Marie,please come to my dinner
-  5.练习3.5：修改嘉宾名单
-  (1) 实验代码：
+  (2) 实验结果：  
+  Albert,please come to my dinner  
+  Einstein,please come to my dinner  
+  Marie,please come to my dinner  
+  5.练习3.5：修改嘉宾名单  
+  (1) 实验代码：  
 
   ```python
   cannot_attend="Albert"
@@ -280,12 +281,12 @@ flowchart LR
       print(f"{guest},please come to my dinner")
   ```
 
-  (2) 实验结果：
-  Sorry to hear that Albert can not attend
-  Mary,please come to my dinner
-  Einstein,please come to my dinner
-  Marie,please come to my dinner
-  6.练习3.6：添加嘉宾名单
+  (2) 实验结果：  
+  Sorry to hear that Albert can not attend  
+  Mary,please come to my dinner  
+  Einstein,please come to my dinner  
+  Marie,please come to my dinner  
+  6.练习3.6：添加嘉宾名单  
   (1) 实验代码：
 
   ```python
@@ -298,15 +299,15 @@ flowchart LR
       print(f"{guest},please come to my dinner")
   ```
 
-  (2) 实验结果：
-  I found a bigger table
-  Jane,please come to my dinner
-  Albert,please come to my dinner
-  Mary,please come to my dinner
-  Einstein,please come to my dinner
-  Marie,please come to my dinner
-  Jack,please come to my dinner
-  7.练习3.7：缩短名单
+  (2) 实验结果：  
+  I found a bigger table  
+  Jane,please come to my dinner  
+  Albert,please come to my dinner  
+  Mary,please come to my dinner  
+  Einstein,please come to my dinner  
+  Marie,please come to my dinner  
+  Jack,please come to my dinner  
+  7.练习3.7：缩短名单  
   (1) 实验代码：
 
   ```python
@@ -320,17 +321,17 @@ flowchart LR
   print(guests)
   ```
 
-  (2) 实验结果：
-  Sorry!I can only invite two guests
-  Sorry Jack,I can not invite you
-  Sorry Marie,I can not invite you
-  Sorry Einstein,I can not invite you
-  Sorry Mary,I can not invite you
-  Dear Jane, You are still invited to my dinner!
-  Dear Albert, You are still invited to my dinner!
+  (2) 实验结果：  
+  Sorry!I can only invite two guests  
+  Sorry Jack,I can not invite you  
+  Sorry Marie,I can not invite you  
+  Sorry Einstein,I can not invite you  
+  Sorry Mary,I can not invite you  
+  Dear Jane, You are still invited to my dinner!  
+  Dear Albert, You are still invited to my dinner!  
   []
-  8.练习3.8：放眼世界
-  (1) 实验代码：
+  8.练习3.8：放眼世界  
+  (1) 实验代码：  
 
   ```python
   cities=["Beijing","Shanghai","Guangzhou","Shenzhen","HongKong","Macao"]
@@ -349,17 +350,17 @@ flowchart LR
   print(cities)
   ```
 
-  (2) 实验结果：
-  ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']
-  ['Beijing', 'Guangzhou', 'HongKong', 'Macao', 'Shanghai', 'Shenzhen']
-  ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']
-  ['Shenzhen', 'Shanghai', 'Macao', 'HongKong', 'Guangzhou', 'Beijing']
-  ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']
-  ['Macao', 'HongKong', 'Shenzhen', 'Guangzhou', 'Shanghai', 'Beijing']
-  ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']
-  ['Beijing', 'Guangzhou', 'HongKong', 'Macao', 'Shanghai', 'Shenzhen']
-  ['Shenzhen', 'Shanghai', 'Macao', 'HongKong', 'Guangzhou', 'Beijing']
-  9.练习2.9：晚餐嘉宾
+  (2) 实验结果：  
+  ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']  
+  ['Beijing', 'Guangzhou', 'HongKong', 'Macao', 'Shanghai', 'Shenzhen']  
+  ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']  
+  ['Shenzhen', 'Shanghai', 'Macao', 'HongKong', 'Guangzhou', 'Beijing']  
+  ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']  
+  ['Macao', 'HongKong', 'Shenzhen', 'Guangzhou', 'Shanghai', 'Beijing']  
+  ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'HongKong', 'Macao']  
+  ['Beijing', 'Guangzhou', 'HongKong', 'Macao', 'Shanghai', 'Shenzhen']  
+  ['Shenzhen', 'Shanghai', 'Macao', 'HongKong', 'Guangzhou', 'Beijing']  
+  9.练习2.9：晚餐嘉宾  
   (1) 实验代码：
 
   ```python
@@ -367,9 +368,9 @@ flowchart LR
   print(f"You have invited {len(guests)} guests to have dinner")
   ```
 
-  (2) 实验结果：
-  You have invited 6 guests to have dinner
-  10.练习2.10：尝试使用各个函数
+  (2) 实验结果：  
+  You have invited 6 guests to have dinner  
+  10.练习2.10：尝试使用各个函数  
   (1) 实验代码：
 
   ```python
@@ -399,21 +400,22 @@ flowchart LR
   print(lists)
   ```
 
-  (2) 实验结果：
-  The number of lists is 6!
-  ['City', 'Country', 'Language', 'Love', 'Mountains', 'Rivers']
-  ['Rivers', 'Mountains', 'Love', 'Language', 'Country', 'City']
-  ['Love', 'Language', 'City', 'Country', 'Rivers', 'Mountains']
-  ['City', 'Country', 'Language', 'Love', 'Mountains', 'Rivers']
-  ['Rivers', 'Mountains', 'Love', 'Language', 'Country', 'City']
-  ['Rivers', 'Mountains', 'Language', 'Country', 'City']
-  ['Rivers', 'Mountains', 'Country', 'City']
-  ['Rivers', 'Mountains', 'Country']
-  ['Rivers', 'Country']
-  ['Rivers', 'Country', 'Mountain']
-  ['Rivers', 'Stars', 'Country', 'Mountain']
-  ['Rivers', 'Animal', 'Country', 'Mountain']
-  11.练习3.11：有意引发错误
+  (2) 实验结果：  
+  The number of lists is 6!  
+  ['City', 'Country', 'Language', 'Love', 'Mountains', 'Rivers']  
+  ['Rivers', 'Mountains', 'Love', 'Language', 'Country', 'City']  
+  ['Love', 'Language', 'City', 'Country', 'Rivers', 'Mountains']  
+  ['City', 'Country', 'Language', 'Love', 'Mountains', 'Rivers']  
+  ['Rivers', 'Mountains', 'Love', 'Language', 'Country', 'City']  
+  ['Rivers', 'Mountains', 'Language', 'Country', 'City']  
+  ['Rivers', 'Mountains', 'Country', 'City']  
+  ['Rivers', 'Mountains', 'Country']  
+  ['Rivers', 'Country']  
+  ['Rivers', 'Country', 'Mountain']  
+  ['Rivers', 'Stars', 'Country', 'Mountain']  
+  ['Rivers', 'Animal', 'Country', 'Mountain']  
+
+  11.练习3.11：有意引发错误  
   (1) 实验代码:
 
   ```python
@@ -424,7 +426,7 @@ flowchart LR
   print(my_list[4])
   ```
 
-  (2) 实验结果：
+  (2) 实验结果：  
   5
 
   12.练习4.1:比萨  
@@ -442,6 +444,7 @@ flowchart LR
     I like chicken pizza  
     I like vegetable pizza  
     I really like pizza!  
+
   13.练习4.2：动物  
   (1) 实验代码：
 
@@ -457,6 +460,7 @@ flowchart LR
     A cat would make a great pet.  
     A tiger would make a great pet.  
     Any of these animals would make a great pet!  
+
   14.练习4.3：数到20  
   (1) 实验代码：
 
@@ -485,6 +489,7 @@ flowchart LR
     17  
     18  
     19  
+
   15.练习4.4：100万  
   (1) 实验代码：
 
@@ -495,15 +500,16 @@ flowchart LR
   ```
 
   (2) 实验结果：  
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  ....
-  1000000
+  1  
+  2  
+  3  
+  4  
+  5  
+  6  
+  7  
+  ....  
+  1000000  
+
   16.练习4.5：100万求和  
   (1) 实验代码：
 
@@ -514,10 +520,11 @@ flowchart LR
   print(sum(list))
   ```
 
-  (2) 实验结果：
-  1
-  1000000
-  500000500000
+  (2) 实验结果：  
+  1  
+  1000000  
+  500000500000  
+
   17.练习4.6：奇数  
   (1) 实验代码：
 
@@ -527,17 +534,18 @@ flowchart LR
       print(list)
   ```
 
-  (2) 实验结果：
-  1
-  3
-  5
-  7
-  9
-  11
-  13
-  15
-  17
-  19
+  (2) 实验结果：  
+  1  
+  3  
+  5  
+  7  
+  9  
+  11  
+  13  
+  15  
+  17  
+  19  
+
   18.练习4.7：3的倍数  
   (1) 实验代码：
 
@@ -547,17 +555,18 @@ flowchart LR
       print(list)
   ```
 
-  (2) 实验结果：
-  3
-  6
-  9
-  12
-  15
-  18
-  21
-  24
-  27
+  (2) 实验结果：  
+  3  
+  6  
+  9  
+  12  
+  15  
+  18  
+  21  
+  24  
+  27  
   30
+
   19.练习4.8:立方
   (1) 实验代码：
 
@@ -567,17 +576,17 @@ flowchart LR
       print(list)
   ```
 
-  (2) 实验结果：
-    1
-    8
-    27
-    64
-    125
-    216
-    343
-    512
-    729
-    1000
+  (2) 实验结果：  
+    1  
+    8  
+    27  
+    64  
+    125  
+    216  
+    343  
+    512  
+    729  
+    1000  
   20.练习4.9:立方推导式  
   (1) 实验代码：
 
@@ -587,18 +596,19 @@ flowchart LR
       print(list)
   ```
 
-  (2) 实验结果
-   1
-  8
-  27
-  64
-  125
-  216
-  343
-  512
-  729
-  1000
-  21.练习4.10:切片
+  (2) 实验结果  
+   1  
+  8  
+  27  
+  64  
+  125  
+  216  
+  343  
+  512  
+  729  
+  1000  
+
+  21.练习4.10:切片  
   (1) 实验代码：
 
   ```python
@@ -608,10 +618,11 @@ flowchart LR
   print("The last three items in the list are:",lists[-3:])
   ```
 
-  (2) 实验结果：
-  The first three items in the list are: [1, 8, 27]
-  Three items from the middle of the list are: [125, 216, 343]
-  The last three items in the list are: [512, 729, 1000]
+  (2) 实验结果：  
+  The first three items in the list are: [1, 8, 27]  
+  Three items from the middle of the list are: [125, 216, 343]  
+  The last three items in the list are: [512, 729, 1000]  
+
   21.练习4.11:你的比萨，我的比萨  
   (1) 实验代码：
 
@@ -630,20 +641,21 @@ flowchart LR
   ```
 
   (2) 实验结果：  
-  ['pepperoni pizza', 'chicken pizza', 'vegetable pizza', 'pineapple pizza']
-  ['pepperoni pizza', 'chicken pizza', 'vegetable pizza', 'cheese pizza']
-  My favorite pizzas are:
-  pepperoni pizza
-  chicken pizza
-  vegetable pizza
-  pineapple pizza
+  ['pepperoni pizza', 'chicken pizza', 'vegetable pizza', 'pineapple pizza']  
+  ['pepperoni pizza', 'chicken pizza', 'vegetable pizza', 'cheese pizza']  
+  My favorite pizzas are:  
+  pepperoni pizza  
+  chicken pizza  
+  vegetable pizza  
+  pineapple pizza  
 
-  My friend's favorite pizzas are:
-  pepperoni pizza
-  chicken pizza
-  vegetable pizza
-  cheese pizza
-  23.练习4.12:使用多个循环
+  My friend's favorite pizzas are:  
+  pepperoni pizza  
+  chicken pizza  
+  vegetable pizza  
+  cheese pizza  
+
+  23.练习4.12:使用多个循环  
   (1) 实验代码：
 
   ```python
@@ -659,19 +671,20 @@ flowchart LR
       print(friend_food)
   ```
 
-  (2) 实验结果：
-  My favorite foods are:
-  pizza
-  falafel
-  carrot cake
-  cannoli
+  (2) 实验结果：  
+  My favorite foods are:  
+  pizza  
+  falafel  
+  carrot cake  
+  cannoli  
 
-  My friend's favorite foods are:
-  pizza
-  falafel
-  carrot cake
-  ice cream
-  24.练习4.13:自助餐
+  My friend's favorite foods are:  
+  pizza  
+  falafel  
+  carrot cake  
+  ice cream  
+
+  24.练习4.13:自助餐  
   (1) 实验代码：
 
   ```python
@@ -684,18 +697,19 @@ flowchart LR
       print(food)
   ```
 
-  (2) 实验结果：
-  pizza
-  falafel
-  carrot cake
-  ice cream
-  cannoli
-  pasta
-  falafel
-  carrot cake
-  ice cream
-  cannoli
-  25.练习5.1： 条件测试
+  (2) 实验结果：  
+  pizza  
+  falafel  
+  carrot cake  
+  ice cream  
+  cannoli  
+  pasta  
+  falafel  
+  carrot cake  
+  ice cream  
+  cannoli  
+
+  25.练习5.1： 条件测试  
   (1) 实验代码：
 
   ```python
@@ -724,28 +738,29 @@ flowchart LR
   print('Hulk' in names)
   ```
 
-  (2) 实验结果：
-  Is car=='bmw'?I predict True.
-  True
-  Is car=='audi'?I predict False.
-  False
-  Is 'rice' in foods?I predict False.
-  False
-  Is 'pizza' in foods?I predict True.
-  True
-  Is 'beer' in foods?I predict False.
-  False
-  Is 'ice cream' in foods?I predict True.
-  True
-  Is 'Iron Man' in names?I predict True.
-  True
-  Is 'Black Widow' in names?I predict False.
-  False
-  Is 'Ant-Man' in names?I predict True.
-  True
-  Is 'Hulk' in names?I predict False.
-  False
-  26.练习5.2：更多条件测试
+  (2) 实验结果：  
+  Is car=='bmw'?I predict True.  
+  True  
+  Is car=='audi'?I predict False.  
+  False  
+  Is 'rice' in foods?I predict False.  
+  False  
+  Is 'pizza' in foods?I predict True.  
+  True  
+  Is 'beer' in foods?I predict False.  
+  False  
+  Is 'ice cream' in foods?I predict True.  
+  True  
+  Is 'Iron Man' in names?I predict True.  
+  True  
+  Is 'Black Widow' in names?I predict False.  
+  False  
+  Is 'Ant-Man' in names?I predict True.  
+  True  
+  Is 'Hulk' in names?I predict False.  
+  False  
+
+  26.练习5.2：更多条件测试  
   (1) 实验代码：
 
   ```python
@@ -784,24 +799,25 @@ flowchart LR
   print('toyota' in cars)
   ```
 
-  (2) 实验结果
-  True
-  False
-  True
-  False
-  True
-  False
-  True
-  False
-  True
-  False
-  True
-  False
-  True
-  False
-  True
-  False
-  27.练习5.3：外星人颜色1
+  (2) 实验结果  
+  True  
+  False  
+  True  
+  False  
+  True  
+  False  
+  True  
+  False  
+  True  
+  False  
+  True  
+  False  
+  True  
+  False  
+  True  
+  False  
+
+  27.练习5.3：外星人颜色1  
   (1) 实验代码：
 
   ```python
@@ -813,9 +829,10 @@ flowchart LR
       print("You've earned 5 points!")
   ```
 
-  (2) 实验结果
+  (2) 实验结果  
   You've earned 5 points!
-  28.练习5.4：外星人颜色2
+
+  28.练习5.4：外星人颜色2  
   (1) 实验代码：
 
   ```python
@@ -829,10 +846,11 @@ flowchart LR
       print("You've earned 10 points!")
   ```
 
-  (2) 实验结果
-  You've earned 5 points!
-  You've earned 10 points!
-  29.练习5.5：外星人颜色3
+  (2) 实验结果  
+  You've earned 5 points!  
+  You've earned 10 points!  
+
+  29.练习5.5：外星人颜色3  
   (1) 实验代码：
 
   ```python
@@ -846,10 +864,10 @@ flowchart LR
           print("You've earned 15 points!")
   ```
 
-  (2) 实验结果
-  You've earned 5 points!
-  You've earned 10 points!
-  You've earned 15 points!
+  (2) 实验结果  
+  You've earned 5 points!  
+  You've earned 10 points!  
+  You've earned 15 points!  
 
   30.练习5.6：人生的不同阶段  
   (1) 实验代码：
@@ -870,9 +888,10 @@ flowchart LR
       print("This person is an elder.")
   ```
 
-  (2) 实验结果
-  This person is a young adult.
-  31.练习5.7：喜欢的水果
+  (2) 实验结果  
+  This person is a young adult.  
+
+  31.练习5.7：喜欢的水果  
   (1) 实验代码：
 
   ```python
@@ -889,10 +908,11 @@ flowchart LR
       print("You really like pears!")
   ```
 
-  (2) 实验结果
-  You really like apples!
-  You really like banans!
-  You really like oranges!
+  (2) 实验结果  
+  You really like apples!  
+  You really like banans!  
+  You really like oranges!  
+
   32.练习5.8：以特殊方式跟管理员打招呼
   (1) 实验代码：
 
@@ -905,13 +925,14 @@ flowchart LR
           print("Hello "+user+",thank you for logging in again.")
   ```
 
-  (2) 实验结果
-  Hello admin,would you like to see a status report?
-  Hello Jaden,thank you for logging in again.
-  Hello Aiden,thank you for logging in again.
-  Hello Mason,thank you for logging in again.
-  Hello Ethan,thank you for logging in again.
-  33.练习5.9：处理没有用户的情形
+  (2) 实验结果  
+  Hello admin,would you like to see a status report?  
+  Hello Jaden,thank you for logging in again.  
+  Hello Aiden,thank you for logging in again.  
+  Hello Mason,thank you for logging in again.  
+  Hello Ethan,thank you for logging in again.  
+
+  33.练习5.9：处理没有用户的情形  
   (1) 实验代码：
 
   ```python
@@ -935,14 +956,15 @@ flowchart LR
       print("We need to find some users!")
   ```
 
-  (2) 实验结果
-  Hello admin,would you like to see a status report?
-  Hello Jaden,thank you for logging in again.
-  Hello Aiden,thank you for logging in again.
-  Hello Mason,thank you for logging in again.
-  Hello Ethan,thank you for logging in again.
-  We need to find some users!
-  34.练习5.10：检查用户名
+  (2) 实验结果  
+  Hello admin,would you like to see a status report?  
+  Hello Jaden,thank you for logging in again.  
+  Hello Aiden,thank you for logging in again.  
+  Hello Mason,thank you for logging in again.  
+  Hello Ethan,thank you for logging in again.  
+  We need to find some users!  
+
+  34.练习5.10：检查用户名  
   (1) 实验代码：
 
   ```python
@@ -955,13 +977,14 @@ flowchart LR
           print("The username "+new_user+" is available.")
   ```
 
-  (2) 实验结果
-  The username admin is already in use,please try another one.
-  The username Jack is available.
-  The username Mason is already in use,please try another one.
-  The username Ethan is already in use,please try another one.
-  The username John is available.
-  35.练习5.11：序数
+  (2) 实验结果  
+  The username admin is already in use,please try another one.  
+  The username Jack is available.  
+  The username Mason is already in use,please try another one.  
+  The username Ethan is already in use,please try another one.  
+  The username John is available.  
+
+  35.练习5.11：序数  
   (1) 实验代码：
 
   ```python
@@ -977,16 +1000,16 @@ flowchart LR
           print(str(i)+"th")
   ```
 
-  (2) 实验结果
-  1st
-  2nd
-  3rd
-  4th
-  5th
-  6th
-  7th
-  8th
-  9th
+  (2) 实验结果  
+  1st  
+  2nd  
+  3rd  
+  4th  
+  5th  
+  6th  
+  7th  
+  8th  
+  9th  
 
 - [第二部分 Codewars Kata挑战](#第二部分)
   
@@ -1031,16 +1054,17 @@ flowchart LR
    ```
   
    (2)实验结果：
-   Test Results:
-    Duplicate Encoder
-    Basic Test Cases
-    (6 of 6 Assertions)
-    Tests with '(' and ')'
-    (2 of 2 Assertions)
-    And now... some random tests !
-    (40 of 40 Assertions)
-    Completed in 6.23ms
-3. 括号匹配（Valid Braces）
+   Test Results:  
+    Duplicate Encoder  
+    Basic Test Cases  
+    (6 of 6 Assertions)  
+    Tests with '(' and ')'  
+    (2 of 2 Assertions)  
+    And now... some random tests !  
+    (40 of 40 Assertions)  
+    Completed in 6.23ms  
+
+3. 括号匹配（Valid Braces）  
    （1）实验代码：
   
    ```python
@@ -1058,13 +1082,13 @@ flowchart LR
     return len(list)==0   #为空返回True
    ```
   
-    (2)实验结果：
-    Test Results:
-    Valid Braces
-    sample Tests
-    (13 of 13 Assertions)
-    Completed in 0.21ms
-4. 第四题： 从随机三元组中恢复秘密字符串(Recover a secret string from random triplets)
+    (2)实验结果：  
+    Test Results:  
+    Valid Braces  
+    sample Tests  
+    (13 of 13 Assertions)  
+    Completed in 0.21ms  
+4. 第四题： 从随机三元组中恢复秘密字符串(Recover a secret string from random triplets)  
      （1）实验代码:
 
      ```python
@@ -1111,7 +1135,7 @@ flowchart LR
         Test Passed
         Test Passed
         Test Passed
-5. 第五题： 去掉喷子的元音（Disemvowel Trolls）
+5. 第五题： 去掉喷子的元音（Disemvowel Trolls）  
    (1)实验代码：
 
    ```python
@@ -1121,14 +1145,14 @@ flowchart LR
     return string_
    ```
 
-    (2)实验结果：
-    Test Results:
-    Fixed Tests
-    First fixed test
-    Second fixed test
-    Third fixed test
-    Random Tests
-    (100 of 100 Assertions)
+    (2)实验结果：  
+    Test Results:  
+    Fixed Tests  
+    First fixed test  
+    Second fixed test  
+    Third fixed test  
+    Random Tests  
+    (100 of 100 Assertions)  
 
 - [第三部分 使用Mermaid绘制程序流程图](#第三部分)
   
