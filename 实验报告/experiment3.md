@@ -1092,40 +1092,36 @@ flowchart LR
      （1）实验代码:
 
      ```python
-     def recoverSecret(triplets):
-      # 构建一个集合来包含所有的字母
-    letters = set()
-    for triplet in triplets:
-        letters.update(set(triplet))# set(triplet) 中的元素（字母）添加到 letters 集合中。如果 letters 中已经包含了某个字母，它不会重复添加，因为集合不允许重复元素。
-    # 构建一个字典，用于表示字母之间的关系
-    graph = {letter: set() for letter in letters}#创建一个字典，其中每个字母是字典的键（key），并且每个字母对应一个空集合（set）作为值（value）
-    
-    # 填充字典，表示三个字母的组合的关系
-    for triplet in triplets:
-        graph[triplet[0]].add(triplet[1])#键为 triplet[0] ,值为triplet[1]
-        graph[triplet[1]].add(triplet[2])
-    
-    # 执行拓扑排序
-    result = []
-    while letters:
-        # 找到入度为0的字母
-        #找出在 letters 集合中没有与其他字母相连的字母，这些字母被认为是潜在的 secret 的首字母。
-        #letter in graph[other]:letter在graph[other]集合里面
-        #any(...) 是一个内置函数，用于检查括号内的条件是否对于列表中的任何元素为真
-        zero_indegree = [letter for letter in letters if not any(letter in graph[other] for other in letters)]
-        if not zero_indegree:
-            # 如果没有入度为0的字母，说明无法继续拓扑排序，可能有环
-            return "Invalid input"
+    def check_first_letter(triplets, first_letter):
+        for triplet in triplets:
+            if triplet and first_letter in triplet[1:]:
+                return False
+        return True
+            
         
-        # 从字典中移除入度为0的字母
-        for letter in zero_indegree:
-            letters.remove(letter)
-            result.append(letter)
-            for other in graph:
-                graph[other].discard(letter)
+    def remove_first_letter(triplets, first_letter):
+        new_triplets=[]
+        for triplet in triplets:
+            if triplet and first_letter==triplet[0]:
+                triplet.remove(first_letter)
+            if len(triplet)>0:
+                new_triplets.append(triplet)
+        return new_triplets
+
+    def recoverSecret(triplets):
+        letters = {letter for triplet in triplets for letter in triplet}
+        secret = []
+
+        while letters:
+            for letter in sorted(letters):
+                if check_first_letter(triplets, letter):
+                    secret.append(letter)
+                    letters.remove(letter)
+                    triplets = remove_first_letter(triplets, letter)
+                    break
+
+        return ''.join(secret)
     
-    # 拼接结果
-    return ''.join(result)
      ```
 
      （2）实验结果：
