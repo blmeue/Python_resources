@@ -1,14 +1,14 @@
 # 实验四 Python字典和while循环
 
-班级： 21计科1
+班级： 21计科3班
 
-学号： 202302200000
+学号： 20210302310
 
-姓名： 张三
+姓名： 姚义香
 
-Github地址：<https://github.com/yourusername/python_course>
+Github地址：<https://github.com/blmeue/Python_resources.git>
 
-CodeWars地址：<https://www.codewars.com/users/yourusername>
+CodeWars地址：<https://www.codewars.com/users/blmeue>
 
 ---
 
@@ -309,7 +309,7 @@ $    ···–··–
 
 使用Markdown语法绘制你的程序绘制程序流程图（至少一个），Markdown代码如下：
 
-![程序流程图](/Experiments/img/2023-08-05-22-00-00.png)
+![程序流程图](./img/2023-08-05-22-00-00.png)
 
 显示效果如下：
 
@@ -332,45 +332,277 @@ flowchart LR
 
 - [第一部分 Python列表操作和if语句](#第一部分)
 - [第二部分 Codewars Kata挑战](#第二部分)
+  
+1. 第一题：淘气还是乖孩子（Naughty or Nice）  
+   （1） 实验代码：  
+
+   ```python
+   def naughty_or_nice(data):
+    count1=0
+    count2=0
+    for month in data:
+        for day in data[month].keys():
+            if data[month][day]== 'Naughty':
+                count1+=1
+            else:
+                count2+=1
+                
+    if count1<=count2:
+        return 'Nice!'
+    else:
+        return 'Naughty!'
+    #测试用例
+    naughty_or_nice({
+    'January': {
+        '1': 'Naughty','2': 'Naughty',  '31': 'Nice'
+    },
+    'February': {
+        '1': 'Nice','2': 'Naughty',  '28': 'Nice'
+    },
+    
+    'December': {
+        '1': 'Nice','2': 'Nice', '31': 'Naughty'
+    }
+    })
+   ```
+
+   （2） 实验结果：  
+   'Nice!'  
+2. 观察到的PIN（The observed PIN）  
+   （1）实验代码：
+
+   ```python
+    # 利用iterools的product函数，得到所有可能的组合
+    from itertools import product
+    def get_pins(observed):
+        observed_dict={'1':['1','2','4'],'2':['1','2','3','5'],
+                    '3':['2','3','6'],'4':['1','4','5','7'],
+                    '5':['2','4','5','6','8'],'6':['3','5','6','9'],
+                    '7':['4','7','8'],'8':['0','5','7','8','9'],
+                    '9':['6','8','9'],'0':['0','8']
+                    }
+        nested_list=[]
+        if not observed:
+            return nested_list
+        for digit in observed:
+            nested_list.append(observed_dict[digit])
+        #二维数组转为若干个一维数组：加个*号
+        #*nested_list
+        return [''.join(item) for item in product(*nested_list)]
+    #测试用例
+    test_cases=['8','11','269']
+    for i in test_cases:
+        print(get_pins(i))
+   ```
+
+   （2）实验结果：  
+   ['0', '5', '7', '8', '9']  
+    ['11', '12', '14', '21', '22', '24', '41', '42', '44']  
+    ['136', '138', '139', '156', '158', '159', '166', '168', '169', '196', '198', '199', '236', '238', '239', '256', '258', '259', '266', '268', '269', '296', '298', '299', '336', '338', '339', '356', '358', '359', '366', '368', '369', '396', '398', '399', '536', '538', '539', '556', '558', '559', '566', '568', '569', '596', '598', '599']  
+
+3. RNA到蛋白质序列的翻译（RNA to Protein Sequence Translation）  
+   （1）实验代码:
+
+   ```python
+   def protein(rna):
+    ret=[]
+    # Your dictionary is provided as PROTEIN_DICT
+    PROTEIN_DICT = {
+    # Phenylalanine
+    'UUC': 'F', 'UUU': 'F',
+    # Leucine
+    'UUA': 'L', 'UUG': 'L', 'CUU': 'L', 'CUC': 'L', 'CUA': 'L', 'CUG': 'L',
+    # Isoleucine
+    'AUU': 'I', 'AUC': 'I', 'AUA': 'I',
+    # Methionine
+    'AUG': 'M',
+    # Valine
+    'GUU': 'V', 'GUC': 'V', 'GUA': 'V', 'GUG': 'V',
+    # Serine
+    'UCU': 'S', 'UCC': 'S', 'UCA': 'S', 'UCG': 'S', 'AGU': 'S', 'AGC': 'S',
+    # Proline
+    'CCU': 'P', 'CCC': 'P', 'CCA': 'P', 'CCG': 'P',
+    # Threonine
+    'ACU': 'T', 'ACC': 'T', 'ACA': 'T', 'ACG': 'T',
+    # Alanine
+    'GCU': 'A', 'GCC': 'A', 'GCA': 'A', 'GCG': 'A',
+    # Tyrosine
+    'UAU': 'Y', 'UAC': 'Y',
+    # Histidine
+    'CAU': 'H', 'CAC': 'H',
+    # Glutamine
+    'CAA': 'Q', 'CAG': 'Q',
+    # Asparagine
+    'AAU': 'N', 'AAC': 'N',
+    # Lysine
+    'AAA': 'K', 'AAG': 'K',
+    # Aspartic Acid
+    'GAU': 'D', 'GAC': 'D',
+    # Glutamic Acid
+    'GAA': 'E', 'GAG': 'E',
+    # Cystine
+    'UGU': 'C', 'UGC': 'C',
+    # Tryptophan
+    'UGG': 'W',
+    # Arginine
+    'CGU': 'R', 'CGC': 'R', 'CGA': 'R', 'CGG': 'R', 'AGA': 'R', 'AGG': 'R',
+    # Glycine
+    'GGU': 'G', 'GGC': 'G', 'GGA': 'G', 'GGG': 'G',
+    # Stop codon
+    'UAA': 'Stop', 'UGA': 'Stop', 'UAG': 'Stop'
+    }
+    i=0
+    # return rna[i:i+3]
+    while i<len(rna)-2:
+        str= rna[i:i+3]
+        
+        if str in PROTEIN_DICT.keys():
+            i+=3
+            #return PROTEIN_DICT[str]
+            if PROTEIN_DICT[str]=='Stop':
+                break
+            ret+= PROTEIN_DICT[str]   
+        else:
+            i+=1
+    return ''.join(ret)
+    #测试用例
+    test=['AUG','AUGUGA','AUGGUUAGUUGA','UGCGAUGAAUGGGCUCGCUCC','AUGUCCUUCCAUCAAGGAAACCAUGCGCGUUCAGCUUUCUGA',
+    'AUGCUUCAAGUGCACUGGAAAAGGAGAGGGAAAACCAGUUGA','AUGGCGUUCAGCUUUCUAUGGAGGGUAGUGUACCCAUGCUGA',
+    'AUGCAGCUUUCUAUGGAGGGUAGUGUUAACUACCACGCCUGA','AUGCUAUGGAGGGUAGUGUUAACUACCACGCCCAGUACUUGA',
+        'AUGUAUCCUUCCAUCAAGGAAACCAUGCGCGUUCAGCUUUCUAUGGAGGGUAGUGUUAACUACCACGCCUUCAAGUGCACUGGAAAAGGAGAGGGAAAACCAUACGAAGGCACCCAAAGCCUGAAUAUUACAAUAACUGAAGGAGGUCCUCUGCCAUUUGCUUUUGACAUUCUGUCACACGCCUUUCAGUAUGGCAUCAAGGUCUUCGCCAAGUACCCCAAAGAAAUUCCUGACUUCUUUAAGCAGUCUCUACCUGGUGGUUUUUCUUGGGAAAGAGUAAGCACCUAUGAAGAUGGAGGAGUGCUUUCAGCUACCCAAGAAACAAGUUUGCAGGGUGAUUGCAUCAUCUGCAAAGUUAAAGUCCUUGGCACCAAUUUUCCCGCAAACGGUCCAGUGAUGCAAAAGAAGACCUGUGGAUGGGAGCCAUCAACUGAAACAGUCAUCCCACGAGAUGGUGGACUUCUGCUUCGCGAUACCCCCGCACUUAUGCUGGCUGACGGAGGUCAUCUUUCUUGCUUCAUGGAAACAACUUACAAGUCGAAGAAAGAGGUAAAGCUUCCAGAACUUCACUUUCAUCAUUUGCGUAUGGAAAAGCUGAACAUAAGUGACGAUUGGAAGACCGUUGAGCAGCACGAGUCUGUGGUGGCUAGCUACUCCCAAGUGCCUUCGAAAUUAGGACAUAACUGA']
+    for i in test:
+        print(protein(i))
+   ```
+
+   （2）实验结果：  
+   M  
+    M  
+    MVS  
+    CDEWARS  
+    MSFHQGNHARSAF  
+    MLQVHWKRRGKTS  
+    MAFSFLWRVVYPC  
+    MQLSMEGSVNYHA  
+    MLWRVVLTTTPST  
+    MYPSIKETMRVQLSMEGSVNYHAFKCTGKGEGKPYEGTQSLNITITEGGPLPFAFDILSHAFQYGIKVFAKYPKEIPDFFKQSLPGGFSWERVSTYEDGGVLSATQETSLQGDCIICKVKVLGTNFPANGPVMQKKTCGWEPSTETVIPRDGGLLLRDTPALMLADGGHLSCFMETTYKSKKEVKLPELHFHHLRMEKLNISDDWKTVEQHESVVASYSQVPSKLGHN
+
+4. 第四题： 填写订单（Thinkful - Dictionary drills: Order filler）  
+   （1）实验代码：  
+
+   ```python
+   def fillable(stock, merch, n):
+    if merch in stock.keys():#判断merch是否存在
+        if n<= stock[merch]:
+            return True
+    return False
+    #测试用例
+    stock = {
+            'football': 4,
+            'boardgame': 10,
+            'leggos': 1,
+            'doll': 5 }
+    print(fillable(stock, 'football', 3))
+    print(fillable(stock, 'leggos', 2))
+    print(fillable(stock, 'action figure', 1))
+   ```
+
+   （2）实验结果：  
+   True  
+    False   
+    False
+
+5. 第五题： 莫尔斯码解码器（Decode the Morse code, advanced）  
+   （1） 实验代码：  
+
+   ```python
+   def decode_bits(bits):
+    bits = bits.strip("0")
+    unit = 0
+    for bit in bits:
+        if bit != "0":
+            unit += 1
+        else:
+            break
+    #unit now might be 1 unit or 3 units
+    count = 1
+    #寻找最小时间单位
+    for i in range(1,len(bits)):
+        if bits[i] == bits[i-1]:
+            count += 1
+        else:
+            if count < unit:
+                unit = count
+                count = 1
+            else:
+                count = 1
+    morse_code = ""
+    
+    words = bits.split("0"*7*unit)#单词间的暂停 
+    for word in words:
+        characters = word.split("0"*3*unit)#单词内字符之间的暂停
+        for character in characters:
+            signs = character.split("0"*unit)#字符内点和划之间的暂停
+            for sign in signs:
+                if sign == "1"*3*unit:
+                    morse_code += "-"
+                else:
+                    morse_code += "."
+            morse_code += " "
+        morse_code += "   "
+    return morse_code
+    def decode_morse(morse_code):
+        morse_code.strip()
+        MORSE_CODE = {
+            '.-': 'A', '-...': 'B', '-.-.': 'C', '-..': 'D', '.': 'E', '..-.': 'F', '--.': 'G', '....': 'H',
+            '..': 'I', '.---': 'J', '-.-': 'K', '.-..': 'L', '--': 'M', '-.': 'N', '---': 'O', '.--.': 'P',
+            '--.-': 'Q', '.-.': 'R', '...': 'S', '-': 'T', '..-': 'U', '...-': 'V', '.--': 'W', '-..-': 'X',
+            '-.--': 'Y', '--..': 'Z', '-----': '0', '.----': '1', '..---': '2', '...--': '3', '....-': '4',
+            '.....': '5', '-....': '6', '--...': '7', '---..': '8', '----.': '9', '.-.-.-': '.', '--..--': ',',
+            '..--..': '?', '.----.': "'", '-.-.--': '!', '-..-.': '/', '-.--.': '(', '-.--.-': ')', '.-...': '&',
+            '---...': ':', '-.-.-.': ';', '-...-': '=', '.-.-.': '+', '-....-': '-', '..--.-': '_', '.-..-.': '"',
+            '...-..-': '$', '.--.-.': '@', '': ' '
+        }
+        result = ""
+        characters = morse_code.split(" ")
+        for character in characters:
+            if character != "":
+                result += MORSE_CODE[character]
+            else:
+                result += " "
+        return ' '.join(result.split())
+        #测试用例
+    decode_morse(decode_bits('1100110011001100000011000000111111001100111111001111110000000000000011001111110011111100111111000000110011001111110000001111110011001100000011'))
+   ```
+
+   （2） 实验结果：  
+   'HEY JUDE'
+
 - [第三部分 使用Mermaid绘制程序流程图](#第三部分)
-
-注意代码需要使用markdown的代码块格式化，例如Git命令行语句应该使用下面的格式：
-
-![Git命令](/Experiments/img/2023-07-26-22-48.png)
-
-显示效果如下：
-
-```bash
-git init
-git add .
-git status
-git commit -m "first commit"
+  
+```mermaid
+flowchart LR
+    A[merch] --> B{Is in stock.keys?}
+    B -->|Yes| C[n小于该商品库存?]
+    C -->|Yes| D[retuen True]
+    C -->|No| E[return False]
+    B ---->|No| E[return False]
 ```
-
-如果是Python代码，应该使用下面代码块格式，例如：
-
-![Python代码](/Experiments/img/2023-07-26-22-52-20.png)
-
-显示效果如下：
-
-```python
-def add_binary(a,b):
-    return bin(a+b)[2:]
-```
-
-代码运行结果的文本可以直接粘贴在这里。
-
-**注意：不要使用截图，Markdown文档转换为Pdf格式后，截图可能会无法显示。**
 
 ## 实验考查
 
 请使用自己的语言并使用尽量简短代码示例回答下面的问题，这些问题将在实验检查时用于提问和答辩以及实际的操作。
 
 1. 字典的键和值有什么区别？
+   答：键：键是字典中的唯一标识符，用于存储和检索值。键必须是不可变的数据类型。  
+   值：值是存储在字典中的数据。值可以是任何数据类型，包括列表，字典，函数等。
 2. 在读取和写入字典时，需要使用默认值可以使用什么方法？
+   答：一般通过使用字典的 get() 方法来实现
 3. Python中的while循环和for循环有什么区别？
+   答：while循环通常用于在给定条件为真的情况下反复执行某个代码块。只要条件保持为真，循环就会继续执行。如果条件变为假，循环就会停止。while循环中可修改列表
+   for循环通常用于迭代一个序列（如列表、元组、字典、字符串）或其他可迭代对象。它会遍历序列中的每个元素，对每个元素执行一次代码块，然后移动到下一个元素。for循环中不可修改列表
 4. 阅读[PEP 636 – Structural Pattern Matching: Tutorial](https://peps.python.org/pep-0636/), 总结Python 3.10中新出现的match语句的使用方法。
+   答：match语句会根据value的值，匹配相应的模式。如果value的值没有匹配任何case，那么会执行最后的case语句，这个语句通常用于处理所有其他情况。此外，还可以在模式中使用通配符_来表示任意值，或者使用其他更复杂的模式来匹配更复杂的结构。
 
 ## 实验总结
 
-总结一下这次实验你学习和使用到的知识，例如：编程工具的使用、数据结构、程序语言的语法、算法、编程技巧、编程思想。
+在本次实验过程中，加深了对字典的键和值的理解，对字典的get()方法有了更深的理解，对while循环和for循环的区别有了更深的理解，对match语句有了更深的理解。与此同时，也对vscode的markdown插件的markdown-pdf插件的使用有了更深的理解。
