@@ -298,7 +298,7 @@ curryPartial(curryPartial(curryPartial(add, 1)), 2, 3) # =>6
 
 使用Markdown语法绘制你的程序绘制程序流程图（至少一个），Markdown代码如下：
 
-![程序流程图](/Experiments/img/2023-08-05-22-00-00.png)
+![程序流程图](./img/2023-08-05-22-00-00.png)
 
 显示效果如下：
 
@@ -319,13 +319,25 @@ flowchart LR
 
 请将实验过程与结果放在这里，包括：
 
-- [第一部分 Python函数](#第一部分)
-- [第二部分 Codewars Kata挑战](#第二部分)
-- [第三部分 使用Mermaid绘制程序流程图](#第三部分)
+- [实验六 Python函数](#实验六-python函数)
+  - [实验目的](#实验目的)
+  - [实验环境](#实验环境)
+  - [实验内容和步骤](#实验内容和步骤)
+    - [第一部分](#第一部分)
+    - [第二部分](#第二部分)
+      - [第一题：编码聚会1](#第一题编码聚会1)
+      - [第二题： 使用函数进行计算](#第二题-使用函数进行计算)
+      - [第三题： 缩短数值的过滤器(Number Shortening Filter)](#第三题-缩短数值的过滤器number-shortening-filter)
+      - [第四题： 编码聚会7](#第四题-编码聚会7)
+      - [第五题： Currying versus partial application](#第五题-currying-versus-partial-application)
+    - [第三部分](#第三部分)
+  - [实验过程与结果](#实验过程与结果)
+  - [实验考查](#实验考查)
+  - [实验总结](#实验总结)
 
 注意代码需要使用markdown的代码块格式化，例如Git命令行语句应该使用下面的格式：
 
-![Git命令](/Experiments/img/2023-07-26-22-48.png)
+![Git命令](./img/2023-07-26-22-48.png)
 
 显示效果如下：
 
@@ -338,7 +350,7 @@ git commit -m "first commit"
 
 如果是Python代码，应该使用下面代码块格式，例如：
 
-![Python代码](/Experiments/img/2023-07-26-22-52-20.png)
+![Python代码](./img/2023-07-26-22-52-20.png)
 
 显示效果如下：
 
