@@ -1,14 +1,14 @@
 # 实验七 Python面向对象编程
 
-班级： 21计科3班
+班级： 21计科1
 
-学号： B20210302310
+学号： 202302200000
 
-姓名： 姚义香
+姓名： 张三
 
-Github地址：<https://github.com/blmeue/Python_resources.git>
+Github地址：<https://github.com/yourusername/python_course>
 
-CodeWars地址：<https://www.codewars.com/users/blmeue>
+CodeWars地址：<https://www.codewars.com/users/yourusername>
 
 ---
 
@@ -149,7 +149,6 @@ helper.page_index(-10) # should == -1 because negative indexes are invalid
 代码提交地址：
 <https://www.codewars.com/kata/515bb423de843ea99400000a>
 
-
 ---
 
 #### 第四题： 向量（Vector）类
@@ -240,18 +239,14 @@ user.rank # => -7 # rank was upgraded to -7
 
 使用Markdown语法绘制你的程序绘制程序类图（至少一个），Markdown代码如下：
 
-![程序类图](/Experiments/img/2023-08-08-22-47-53.png)
+![程序类图](./img/2023-08-08-22-47-53.png)
 
 显示效果如下：
 
-```mermaid
----
-title: Animal example
----
+```mermaid  
+
 classDiagram
-    note "From Duck till Zebra"
     Animal <|-- Duck
-    note for Duck "can fly\ncan swim\ncan dive\ncan help in debugging"
     Animal <|-- Fish
     Animal <|-- Zebra
     Animal : +int age
@@ -271,6 +266,7 @@ classDiagram
         +bool is_wild
         +run()
     }
+
 ```
 
 查看Mermaid类图的语法-->[点击这里](https://mermaid.js.org/syntax/classDiagram.html)
