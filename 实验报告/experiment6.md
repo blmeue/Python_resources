@@ -1,14 +1,14 @@
 # 实验六 Python函数
 
-班级： 21计科1
+班级： 21计科3班
 
-学号： 202302200000
+学号： B20210302310
 
-姓名： 张三
+姓名： 姚义香
 
-Github地址：<https://github.com/yourusername/python_course>
+Github地址：<https://github.com/blmeue/Python_resources.git>
 
-CodeWars地址：<https://www.codewars.com/users/yourusername>
+CodeWars地址：<https://www.codewars.com/users/blmeue>
 
 ---
 
@@ -343,8 +343,8 @@ flowchart LR
     print(count_developers(list1))
    ```
 
-   (2) 实验结果：
-   1
+   (2) 实验结果：  
+   1  
   2. 第二题： 使用函数进行计算
 
    （1）实验代码：
@@ -425,9 +425,9 @@ flowchart LR
   print(four(plus(nine())))
    ```
 
-  （2）实验结果：
-  35
-  13
+  （2）实验结果：  
+  35  
+  13  
   3. 第三题： 缩短数值的过滤器(Number Shortening Filter)
 
    （1）实验代码：
@@ -457,12 +457,12 @@ flowchart LR
 
    ```
 
-   （2）实验结果
-   234k
-  98m
-  [1, 2, 3]
-  1
-  1
+   （2）实验结果  
+   234k  
+  98m  
+  [1, 2, 3]  
+  1  
+  1  
   4. 第四题： 编码聚会7
    （1）实验代码：
 
@@ -484,11 +484,12 @@ flowchart LR
   print(find_senior(list1))
    ```
 
-   （2）实验结果：
-   [{'firstName': 'Gabriel', 'lastName': 'X.', 'country': 'Monaco', 'continent': 'Europe', 'age': 49, 'language': 'PHP'},
-    {'firstName': 'Sou', 'lastName': 'B.', 'country': 'Japan', 'continent': 'Asia', 'age': 49, 'language': 'PHP'}]
-  5. 第五题： Currying versus partial application
+   （2）实验结果：  
+   [{'firstName': 'Gabriel', 'lastName': 'X.', 'country': 'Monaco', 'continent': 'Europe', 'age': 49, 'language': 'PHP'},  {'firstName': 'Sou', 'lastName': 'B.', 'country': 'Japan', 'continent': 'Asia', 'age': 49, 'language': 'PHP'}]  
+
+ 5. 第五题： Currying versus partial application
    (1) 实验代码：
+
    ```python
    import types
   def curry_partial(f,*initial_args):
@@ -520,20 +521,51 @@ flowchart LR
   print(partialAdd(2, 3))  # => 6
    ```
 
-   （2）实验结果：
-   6
-   6 
-
+   （2）实验结果：  
+   6  
+   6  
 
 - [第三部分 使用Mermaid绘制程序流程图](#第三部分)
+
+```mermaid
+flowchart LR
+    A[lst1] --> B{ls in lst1?}
+    B -->|Yes| C{continent==Europe?}
+    C -->|Yes| D{language==JavaScript?}
+    D -->|Yes|E[count+=1]
+    E -->B
+    C -->|No|B
+    D -->|No|B
+    B ---->|No| F[End]
+```
 
 ## 实验考查
 
 请使用自己的语言并使用尽量简短代码示例回答下面的问题，这些问题将在实验检查时用于提问和答辩以及实际的操作。
 
 1. 什么是函数式编程范式？
+   答：函数式编程范式是一种编程思想，它将计算过程视为一系列数学函数的求值。在函数式编程中，函数是一等公民，即函数可以作为参数传递给其他函数，也可以作为其他函数的返回值。函数式编程的核心思想是通过组合纯函数（没有副作用的函数）来构建程序。它强调将计算视为函数求值的过程，避免了状态和可变数据的使用，使程序更易于理解、维护和测试。
 2. 什么是lambda函数？请举例说明。
+   答：Lambda函数是一种匿名函数，也就是没有名字的函数。它们主要用于短小的函数定义，而无需使用def关键字显式地创建一个函数。Lambda函数以lambda关键字开头，后面跟着参数列表和冒号，然后是表达式。
+   例如：
+
+   ```python
+   f = lambda x: x ** 2
+   print(f(5))  # 输出：25
+   ```
+
 3. 什么是高阶函数？常用的高阶函数有哪些？这些高阶函数如何工作？使用简单的代码示例说明。
+   答：高阶函数是接受一个或多个函数作为输入（参数）或返回一个函数作为结果的函数。换句话说，函数可以接受函数作为输入，或者返回一个函数作为结果，或者两者都做。在编程中，有很多常见的高阶函数，如map(), filter(), reduce(), sorted()。
+   例如：
+
+   ```python
+    numbers = [1, 2, 3, 4, 5]  
+    squared = map(lambda x: x ** 2, numbers)  
+    print(list(squared))  # 输出：[1, 4, 9, 16, 25]
+    numbers = [1, 2, 3, 4, 5]  
+    even = filter(lambda x: x % 2 == 0, numbers)  
+    print(list(even))  # 输出：[2, 4]
+   ```
 
 ## 实验总结
 

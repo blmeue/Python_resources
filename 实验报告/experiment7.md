@@ -1,14 +1,14 @@
 # 实验七 Python面向对象编程
 
-班级： 21计科1
+班级： 21计科3班
 
-学号： 202302200000
+学号： B20210302310
 
-姓名： 张三
+姓名： 姚义香
 
-Github地址：<https://github.com/yourusername/python_course>
+Github地址：<https://github.com/blmeue/Python_resources.git>
 
-CodeWars地址：<https://www.codewars.com/users/yourusername>
+CodeWars地址：<https://www.codewars.com/users/blmeue>
 
 ---
 
