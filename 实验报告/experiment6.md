@@ -319,49 +319,213 @@ flowchart LR
 
 请将实验过程与结果放在这里，包括：
 
-- [实验六 Python函数](#实验六-python函数)
-  - [实验目的](#实验目的)
-  - [实验环境](#实验环境)
-  - [实验内容和步骤](#实验内容和步骤)
-    - [第一部分](#第一部分)
-    - [第二部分](#第二部分)
-      - [第一题：编码聚会1](#第一题编码聚会1)
-      - [第二题： 使用函数进行计算](#第二题-使用函数进行计算)
-      - [第三题： 缩短数值的过滤器(Number Shortening Filter)](#第三题-缩短数值的过滤器number-shortening-filter)
-      - [第四题： 编码聚会7](#第四题-编码聚会7)
-      - [第五题： Currying versus partial application](#第五题-currying-versus-partial-application)
-    - [第三部分](#第三部分)
-  - [实验过程与结果](#实验过程与结果)
-  - [实验考查](#实验考查)
-  - [实验总结](#实验总结)
+- [第一部分 Python函数](#第一部分)
+- [第二部分 Codewars Kata挑战](#第二部分)
+  1. 第一题：编码聚会1
+   （1）实验代码：
 
-注意代码需要使用markdown的代码块格式化，例如Git命令行语句应该使用下面的格式：
+   ```python
+   def count_developers(lst):
+    # Your code here
+    count=0
+    for ls in lst:
+        if ls['continent']=='Europe' and ls['language']=='JavaScript':
+            count+=1
+    return count
+    #测试用例
+    list1 = [
+        { 'firstName': 'Noah', 'lastName': 'M.', 'country': 'Switzerland', 'continent': 'Europe', 'age': 19, 'language': 'JavaScript' },
+        { 'firstName': 'Maia', 'lastName': 'S.', 'country': 'Tahiti', 'continent': 'Oceania', 'age': 28, 'language': 'JavaScript' },
+        { 'firstName': 'Shufen', 'lastName': 'L.', 'country': 'Taiwan', 'continent': 'Asia', 'age': 35, 'language': 'HTML' },
+        { 'firstName': 'Sumayah', 'lastName': 'M.', 'country': 'Tajikistan', 'continent': 'Asia', 'age': 30, 'language': 'CSS' }
+        ]
 
-![Git命令](./img/2023-07-26-22-48.png)
+    print(count_developers(list1))
+   ```
 
-显示效果如下：
+   (2) 实验结果：
+   1
+  2. 第二题： 使用函数进行计算
 
-```bash
-git init
-git add .
-git status
-git commit -m "first commit"
-```
+   （1）实验代码：
 
-如果是Python代码，应该使用下面代码块格式，例如：
+   ```python
+   def zero(func=None):
+    if func is None:
+        return 0
+    else:
+        return func(0)
 
-![Python代码](./img/2023-07-26-22-52-20.png)
+  def one(func=None):
+      if func is None:
+          return 1
+      else:
+          return func(1)
 
-显示效果如下：
+  def two(func=None):
+      if func is None:
+          return 2
+      else:
+          return func(2)
 
-```python
-def add_binary(a,b):
-    return bin(a+b)[2:]
-```
+  def three(func=None):
+      if func is None:
+          return 3
+      else:
+          return func(3)
 
-代码运行结果的文本可以直接粘贴在这里。
+  def four(func=None):
+      if func is None:
+          return 4
+      else:
+          return func(4)
 
-**注意：不要使用截图，Markdown文档转换为Pdf格式后，截图可能会无法显示。**
+  def five(func=None):
+      if func is None:
+          return 5
+      else:
+          return func(5)
+
+  def six(func=None):
+      if func is None:
+          return 6
+      else:
+          return func(6)
+
+  def seven(func=None):
+      if func is None:
+          return 7
+      else:
+          return func(7)
+
+  def eight(func=None):
+      if func is None:
+          return 8
+      else:
+          return func(8)
+
+  def nine(func=None):
+      if func is None:
+          return 9
+      else:
+          return func(9)
+
+  def plus(num):
+      return lambda x: x + num
+
+  def minus(num):
+      return lambda x: x - num
+
+  def times(num):
+      return lambda x: x * num
+
+  def divided_by(num):
+      return lambda x: x // num
+  print(seven(times(five())))
+  print(four(plus(nine())))
+   ```
+
+  （2）实验结果：
+  35
+  13
+  3. 第三题： 缩短数值的过滤器(Number Shortening Filter)
+
+   （1）实验代码：
+
+   ```python
+   def shorten_number(suffixes, base):
+    def my_filter(number):
+        if type(number) != str:
+            return str(number)
+        else:
+            if number.isdigit():
+                numb = int(number)
+                i=0
+                while numb//base>0 and i<len(suffixes)-1:
+                    numb=numb//base
+                    i=i+1
+                return str(numb)+suffixes[i]
+            else:
+                return number
+    return my_filter
+    #测试用例
+  filter1 = shorten_number(['','k','m'],1000)
+  print(filter1('234234'))
+  print(filter1('98234324'))
+  print(filter1([1,2,3]))
+  print(filter1(1))
+
+   ```
+
+   （2）实验结果
+   234k
+  98m
+  [1, 2, 3]
+  1
+  1
+  4. 第四题： 编码聚会7
+   （1）实验代码：
+
+   ```python
+   def find_senior(lst): 
+    # your code here
+    max_age = max(dev['age'] for dev in lst)
+    ret=[]
+    for ls in lst:
+        if ls['age']==max_age:
+            ret.append(ls)
+    return ret
+    list1 = [
+            { 'firstName': 'Gabriel', 'lastName': 'X.', 'country': 'Monaco', 'continent': 'Europe', 'age': 49, 'language': 'PHP' },
+            { 'firstName': 'Odval', 'lastName': 'F.', 'country': 'Mongolia', 'continent': 'Asia', 'age': 38, 'language': 'Python' },
+            { 'firstName': 'Emilija', 'lastName': 'S.', 'country': 'Lithuania', 'continent': 'Europe', 'age': 19, 'language': 'Python' },
+            { 'firstName': 'Sou', 'lastName': 'B.', 'country': 'Japan', 'continent': 'Asia', 'age': 49, 'language': 'PHP' },
+            ] 
+  print(find_senior(list1))
+   ```
+
+   （2）实验结果：
+   [{'firstName': 'Gabriel', 'lastName': 'X.', 'country': 'Monaco', 'continent': 'Europe', 'age': 49, 'language': 'PHP'},
+    {'firstName': 'Sou', 'lastName': 'B.', 'country': 'Japan', 'continent': 'Asia', 'age': 49, 'language': 'PHP'}]
+  5. 第五题： Currying versus partial application
+   (1) 实验代码：
+   ```python
+   import types
+  def curry_partial(f,*initial_args):
+      """ Curries and partially applies the initial arguments to the function """
+      if type(f) != types.FunctionType:#判断第一个参数是否为函数
+          return f
+          # 查看函数f需要的参数个数
+      num_args = f.__code__.co_argcount
+      # 如果f函数不需要参数，说明f是curry_partial函数
+      if num_args == 0:
+          return f(*initial_args)
+
+      if len(initial_args) >= num_args:
+          return f(*initial_args[:num_args])
+      
+      def my_ini(*new_args):
+          all_args = initial_args + new_args
+          return curry_partial(f, *all_args)
+          
+      return my_ini
+
+  # 定义一个三个数的加法
+  add = lambda a,b,c: a+b+c
+  #测试用例
+  curriedAdd = curry_partial(add)
+  print(curriedAdd(1)(2)(3))  # => 6
+
+  partialAdd = curry_partial(add, 1)
+  print(partialAdd(2, 3))  # => 6
+   ```
+
+   （2）实验结果：
+   6
+   6 
+
+
+- [第三部分 使用Mermaid绘制程序流程图](#第三部分)
 
 ## 实验考查
 
