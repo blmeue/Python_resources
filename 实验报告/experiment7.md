@@ -1,14 +1,14 @@
 # 实验七 Python面向对象编程
 
-班级： 21计科1
+班级： 21计科3班
 
-学号： 202302200000
+学号： B20210302310
 
-姓名： 张三
+姓名： 姚义香
 
-Github地址：<https://github.com/yourusername/python_course>
+Github地址：<https://github.com/blmeue/Python_resources.git>
 
-CodeWars地址：<https://www.codewars.com/users/yourusername>
+CodeWars地址：<https://www.codewars.com/users/blmeue>
 
 ---
 
@@ -279,43 +279,303 @@ classDiagram
 
 - [第一部分 Python面向对象编程](#第一部分)
 - [第二部分 Codewars Kata挑战](#第二部分)
-- [第三部分 使用Mermaid绘制程序流程图](#第三部分)
 
-注意代码需要使用markdown的代码块格式化，例如Git命令行语句应该使用下面的格式：
-
-![Git命令](/Experiments/img/2023-07-26-22-48.png)
-
-显示效果如下：
-
-```bash
-git init
-git add .
-git status
-git commit -m "first commit"
-```
-
-如果是Python代码，应该使用下面代码块格式，例如：
-
-![Python代码](/Experiments/img/2023-07-26-22-52-20.png)
-
-显示效果如下：
+1. 第一题：面向对象的海盗
+（1） 实验代码：
 
 ```python
-def add_binary(a,b):
-    return bin(a+b)[2:]
+class Ship:
+    def __init__(self, draft, crew):
+        self.draft = draft
+        self.crew = crew
+    def is_worth_it(self):
+        result=self.draft-self.crew*1.5
+        return result>20
+    # Your code here
+    #测试用例
+EmptyShip = Ship(0, 0)
+print(EmptyShip.is_worth_it())
 ```
 
-代码运行结果的文本可以直接粘贴在这里。
+（2） 实验结果：
+False
+2. 第二题： 搭建积木
+（1） 实验代码：
 
-**注意：不要使用截图，Markdown文档转换为Pdf格式后，截图可能会无法显示。**
+```python
+class Block:  
+    def __init__(self, lists):  
+        self.width = lists[0] 
+        self.length = lists[1]  
+        self.height = lists[2]
+    def get_width(self):  
+        return self.width  
+    def get_length(self):  
+        return self.length  
+    def get_height(self):  
+        return self.height
+    def get_volume(self):
+        return self.width*self.length*self.height
+    def get_surface_area(self):
+        return 2*(self.width*self.length+self.width*self.height+self.length*self.height)
+    #测试用例
+    block1 = Block([2,2,2])
+    print(block1.get_volume())
+    print(block1.get_surface_area())
+    print(block1.get_length())
+    print(block1.get_width())
+    print(block1.get_height())
+```
+
+（2）实验结果：
+8  
+24  
+2  
+2  
+2  
+3. 第三题： 分页助手
+（1）实验代码：
+
+```python
+# TODO: complete this class
+import math
+class PaginationHelper:
+    
+    # The constructor takes in an array of items and an integer indicating
+    # how many items fit within a single page
+    def __init__(self, collection, items_per_page):
+        self.collection=collection
+        self.items_per_page=items_per_page
+    
+    # returns the number of items within the entire collection
+    def item_count(self):
+        return len(self.collection)
+        
+    
+    # returns the number of pages
+    def page_count(self):
+        #向上取整
+            return math.ceil(self.item_count() / self.items_per_page)
+    
+    # returns the number of items on the given page. page_index is zero based
+    # this method should return -1 for page_index values that are out of range
+    def page_item_count(self, page_index):
+        if page_index < 0 or page_index >= self.page_count():
+            return -1
+        elif page_index == self.page_count() - 1:
+            last_page=self.item_count() % self.items_per_page
+            return self.items_per_page if last_page == 0 else last_page
+        else:
+            return self.items_per_page
+    
+    # determines what page an item at the given index is on. Zero based indexes.
+    # this method should return -1 for item_index values that are out of range
+    def page_index(self, item_index):
+        if item_index < 0 or item_index >= self.item_count():
+            return -1
+        else:
+            return item_index // self.items_per_page
+        
+    helper = PaginationHelper(['a','b','c','d','e','f'], 4)
+    print(helper.page_count()) # should == 2
+    print(helper.item_count()) # should == 6
+    print(helper.page_item_count(0))  # should == 4
+    print(helper.page_item_count(1)) # last page - should == 2
+    print(helper.page_item_count(2)) # should == -1 since the page is invalid
+
+    # page_index takes an item index and returns the page that it belongs on
+    print(helper.page_index(5)) # should == 1 (zero based index)
+    print(helper.page_index(2)) # should == 0
+    print(helper.page_index(20)) # should == -1
+    print(helper.page_index(-10)) # should == -1 because negative indexes are invalid
+```
+
+（2）实验结果：  
+2  
+6  
+4  
+2  
+-1  
+1  
+0  
+-1  
+-1  
+4. 第四题： 向量（Vector）类
+（1）实验代码：
+
+```python
+from math import sqrt
+class Vector:    
+    def __init__(self, lists):    
+        self.lists=tuple(x for x in lists)   
+        self.i = 0  # Add this line.  
+        
+    def __str__(self):    
+        return str(self.lists).replace(' ', '')    
+        
+    def check(self, other):    
+        if not len(self.lists) == len(other.lists):    
+            raise ValueError('Vectors of different length')    
+        
+    def add(self, other):    
+        self.check(other)    
+        return Vector([x + y for x, y in zip(self.lists, other.lists)])    
+        
+    def subtract(self, other):    
+        self.check(other)    
+        return Vector([x - y for x, y in zip(self.lists, other.lists)])    
+        
+    def dot(self, other):    
+        self.check(other)    
+        return sum([x * y for x, y in zip(self.lists, other.lists)])    
+        
+    def norm(self):    
+        return (sum([x**2 for x in self.lists]))**0.5  
+        
+    def equals(self, other):    
+        return self.lists == other.lists    
+        
+    def __iter__(self):    
+        return self    
+        
+    def __next__(self):    
+        if self.i < len(self.lists):    
+            result = self.lists[self.i]    
+            self.i += 1    
+            return result    
+        else:    
+            raise StopIteration
+
+    a = Vector([1, 2, 3])
+    b = Vector([3, 4, 5])
+    c = Vector([5, 6, 7, 8])
+
+    print(a.add(b))      # should return a new Vector([4, 6, 8])
+    print(a.subtract(b)) # should return a new Vector([-2, -2, -2])
+    print(a.dot(b))      # should return 1*3 + 2*4 + 3*5 = 26
+    print(a.norm())      # should return sqrt(1^2 + 2^2 + 3^2) = sqrt(14)
+    #print(a.add(c))      # raises an exception
+```
+
+（2）实验结果：
+(4,6,8)  
+(-2,-2,-2)  
+26  
+3.7416573867739413  
+
+5. 第五题： Codewars风格的等级系统
+（1）实验代码：
+```python
+class User:
+    def __init__(self):
+        self.values=[-8,-7,-6,-5,-4,-3,-2,-1,1,2,3,4,5,6,7,8]
+        self.progress=0
+        self.rank=-8
+        self.rank_index=0#下标
+
+    def inc_progress(self,value):
+        rank_value=self.values.index(value)
+        if rank_value>self.rank_index:
+            self.progress+=10*(rank_value-self.rank_index)**2
+        elif rank_value==self.rank_index-1:
+            self.progress+=1
+        elif rank_value==self.rank_index:
+            self.progress+=3
+        
+        while self.progress>=100:
+            self.rank_index+=1
+            if self.rank_index < len(self.values):
+                self.rank = self.values[self.rank_index]
+            else:
+                self.rank = 8
+            self.progress-=100
+        
+        if self.rank==8:
+            self.progress=0
+            return
+    #测试用例
+    user = User()
+    print(user.rank) # => -8
+    print(user.progress) # => 0
+    print(user.inc_progress,-7)
+    print(user.progress) # => 10
+    print(user.inc_progress(-5)) # will add 90 progress
+    print(user.progress) # => 0 # progress is now zero
+    print(user.rank) # => -7 # rank was upgraded to -7
+```
+
+（2）实验结果：
+-8  
+0  
+<bound method User.inc_progress of <__main__.User object at 0x000001BAFF2A1B10>> -7  
+0  
+None  
+90  
+-8  
+
+
+- [第三部分 使用Mermaid绘制程序流程图](#第三部分)
 
 ## 实验考查
 
 请使用自己的语言并使用尽量简短代码示例回答下面的问题，这些问题将在实验检查时用于提问和答辩以及实际的操作。
 
 1. Python的类中__init__方法起什么作用？
+   答：在Python中，__init__方法是一个特殊的方法，也称为类的构造函数。当一个类实例化（即创建一个对象）时，Python会自动调用这个方法。它的主要作用是初始化新创建的对象的状态。具体来说，__init__方法允许你在创建新对象时设置对象的属性。这些属性可以是从用户那里接收的参数，也可以是你预先定义好的默认值。
 2. Python语言中如何继承父类和改写（override）父类的方法。
+   答：在子类中，如果你想调用父类的方法，你可以使用super()函数。。例如，你可以在子类的speak方法中先调用super().speak()来调用父类的speak方法，然后再做一些额外的操作。这在你想在子类中添加一些新的行为，但同时又不想完全替换父类的行为时很有用。例如：
+
+   ```python
+   class Animal:  
+    def __init__(self, name):  
+        self.name = name  
+  
+    def speak(self):  
+        print(f"{self.name} makes a noise")
+    class Dog(Animal):  
+    def __init__(self, name):  
+        super().__init__(name)  # 调用父类的初始化方法  
+  
+    # 重写父类的speak方法  
+    def speak(self):  
+        print(f"{self.name} barks")
+    
+    dog = Dog("Fido")  
+    dog.speak()  # 输出 "Fido barks"
+   ```
+
 3. Python类有那些特殊的方法？它们的作用是什么？请举三个例子并编写简单的代码说明。
+   答：Python类中有很多特殊的方法，这些方法以双下划线开头和结尾，例如__init__, __str__, __del__等等。这些特殊方法在Python中被称为"魔法方法"（Magic Methods）或者"双下划线方法"（Double Underscore Methods）。它们可以让你更深入地控制类的行为，或者修改类的核心功能。例如：
+
+   ```python
+   #第一个例子
+   class MyClass:  
+    def __init__(self, name):  
+        self.name = name  
+        print(f"A new instance is created with name {self.name}")  
+    me = MyClass("John")  # 输出: A new instance is created with name John
+    #第二个励志
+    class MyClass:  
+    def __init__(self, name):  
+        self.name = name  
+  
+    def __str__(self):  
+        return f"My name is {self.name}"  
+  
+    me = MyClass("John")  
+    print(me)  # 输出: My name is John
+    #第三个例子
+    class MyClass:  
+    def __init__(self, name):  
+        self.name = name  
+        print(f"A new instance is created with name {self.name}")  
+  
+    def __del__(self):  
+        print(f"The instance {self.name} is deleted")  
+  
+    me = MyClass("John")  # 输出: A new instance is created with name John  
+    del me  # 输出: The instance John is deleted
+   ```
 
 ## 实验总结
 
