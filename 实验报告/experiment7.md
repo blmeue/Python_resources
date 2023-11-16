@@ -513,8 +513,22 @@ None
 90  
 -8  
 
+- [第三部分 使用Mermaid绘制程序类图](#第三部分)
 
-- [第三部分 使用Mermaid绘制程序流程图](#第三部分)
+```mermaid
+
+classDiagram
+    class Block{
+        +int width
+        +int length
+        +int height
+        +get_width()
+        +get_length()
+        +get_height()
+        +get_volume()
+        +get_surface_area()
+    }
+```
 
 ## 实验考查
 
@@ -579,4 +593,4 @@ None
 
 ## 实验总结
 
-总结一下这次实验你学习和使用到的知识，例如：编程工具的使用、数据结构、程序语言的语法、算法、编程技巧、编程思想。
+在本次实验过程中，我学习了Python的面向对象编程，对Python的类和对象有了更深的了解。知道了list、tuple、dict、set、str、int、float、bool等内置类型都是Python的类，它们都拥有自己的属性和方法。同时也学会了在VSCODE里面绘制类图。
