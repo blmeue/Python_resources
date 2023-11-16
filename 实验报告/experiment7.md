@@ -462,9 +462,9 @@ class Vector:
 (-2,-2,-2)  
 26  
 3.7416573867739413  
-
 5. 第五题： Codewars风格的等级系统
 （1）实验代码：
+
 ```python
 class User:
     def __init__(self):
@@ -568,7 +568,7 @@ classDiagram
         self.name = name  
         print(f"A new instance is created with name {self.name}")  
     me = MyClass("John")  # 输出: A new instance is created with name John
-    #第二个励志
+    #第二个例子
     class MyClass:  
     def __init__(self, name):  
         self.name = name  
