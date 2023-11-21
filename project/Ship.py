@@ -1,6 +1,8 @@
 import pygame
 from pygame.sprite import Sprite
 
+
+
 class Ship(Sprite):
     """管理飞船的类"""
     def __init__(self,ai_game):

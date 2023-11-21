@@ -1,5 +1,6 @@
 import pygame.font
 from pygame.sprite import Group
+import json
 
 from ship import Ship
 
@@ -24,6 +25,8 @@ class Scoreboard:
         self.prep_level()
         
         self.prep_ships()
+        
+
         
     def prep_ships(self):
         """显示还余下多少艘飞船"""
@@ -59,6 +62,7 @@ class Scoreboard:
         
     def show_score(self):
         """在屏幕上显示当前得分和最高分、等级、余下的飞船数"""
+        
         self.screen.blit(self.score_image,self.score_rect)
         self.screen.blit(self.high_score_image,self.high_score_rect)
         self.screen.blit(self.level_image,self.level_rect)
@@ -69,6 +73,12 @@ class Scoreboard:
         if self.stats.score>self.stats.high_score:
             self.stats.high_score=self.stats.score
             self.prep_high_score()
+    
+    def write_high_score(self):
+        """将最高分写入文件"""
+        filename='hightest_score.json'
+        with open(filename,'w') as file:
+            json.dump(self.stats.high_score,file)
         
     def prep_high_score(self):
         """将最高分渲染为图像"""

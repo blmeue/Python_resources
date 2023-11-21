@@ -130,6 +130,7 @@ class AlienInvasion:
         """响应按键和鼠标事件"""
         for event in pygame.event.get():
             if event.type==pygame.QUIT:
+                self.sb.write_high_score()
                 sys.exit()
             elif event.type==pygame.KEYDOWN:
                 self._check_keydown_events(event)
@@ -175,6 +176,7 @@ class AlienInvasion:
             #向左移动
             self.ship.moving_left=True
         elif event.key==pygame.K_q:#按Q键退出
+            self.sb.write_high_score()
             sys.exit()
         elif event.key==pygame.K_SPACE:#按空格键发射一颗子弹
             self._fire_bullet()
@@ -196,7 +198,7 @@ class AlienInvasion:
         
     
     def _update_bullets(self):
-        """更新子弹的位置并删除已经小时的子弹"""
+        """更新子弹的位置并删除已经消失的子弹"""
         #更新子弹的位置
         self.bullets.update()
         
