@@ -1,6 +1,7 @@
 import sys
 import pygame
 from time import sleep
+from random import randint
 
 from settings import Settings
 from ship import Ship
@@ -9,6 +10,7 @@ from alien import Alien
 from game_stats import GameStats
 from button import Button
 from scoreboard import Scoreboard
+from stars import Stars
 
 class AlienInvasion:
     """管理游戏资源和行为的类"""
@@ -27,6 +29,14 @@ class AlienInvasion:
         self.screen=pygame.display.set_mode((self.settings.screen_width,self.settings.screen_height))
         
         pygame.display.set_caption("Alien Invasion")
+        
+        #创建星星列表
+        self.stars=pygame.sprite.Group()
+        
+        # 创建定时器事件
+        pygame.time.set_timer(pygame.USEREVENT + 1, 2000)  # 每2秒触发一次定时器
+
+        self.elapsed_time=0#计时器
         
         #创建存储游戏统计信息的实体,并创建计分牌        
         #创建一个用于存储游戏统计信息的实例
@@ -139,6 +149,8 @@ class AlienInvasion:
             elif event.type==pygame.MOUSEBUTTONDOWN:#监视Play按钮
                 mouse_pos=pygame.mouse.get_pos()
                 self._check_play_button(mouse_pos)
+            elif event.type == pygame.USEREVENT + 1:#计时更新星星位置
+                self.stars_update()
 
         
     def _check_play_button(self,mouse_pos):
@@ -180,6 +192,10 @@ class AlienInvasion:
             sys.exit()
         elif event.key==pygame.K_SPACE:#按空格键发射一颗子弹
             self._fire_bullet()
+        elif event.key==pygame.K_UP:
+            self.ship.moving_up=True
+        elif event.key==pygame.K_DOWN:
+            self.ship.moving_down=True
         
     
     def _check_keyup_events(self,event):
@@ -188,6 +204,11 @@ class AlienInvasion:
             self.ship.moving_right=False
         elif event.key==pygame.K_LEFT:
             self.ship.moving_left=False
+        elif event.key==pygame.K_UP:
+            self.ship.moving_up=False
+        elif event.key==pygame.K_DOWN:
+            self.ship.moving_down=False
+            
     
     def _fire_bullet(self):
         """创建一颗子弹,并将其加入编组bullets,但屏幕上最多有self.settings.bullets_allowed颗子弹"""
@@ -195,8 +216,6 @@ class AlienInvasion:
             new_bullet=Bullet(self)
             self.bullets.add(new_bullet)
         
-        
-    
     def _update_bullets(self):
         """更新子弹的位置并删除已经消失的子弹"""
         #更新子弹的位置
@@ -209,6 +228,13 @@ class AlienInvasion:
                 self.bullets.remove(bullet)
         self._check_bullet_alien_collisions()
 
+    def stars_update(self):
+        """在游戏背景中随机放星星"""
+        #更新星星的位置
+        self.stars.empty()
+        for _ in range(10):
+                star = Stars(self)
+                self.stars.add(star)
             
     def _check_bullet_alien_collisions(self):
         """响应子弹和外星人的碰撞"""
@@ -256,7 +282,14 @@ class AlienInvasion:
         if not self.game_active:
             self.play_button.draw_button()
         
+        #绘制星星
+        #for star in self.stars:
+            #self.screen.blit(star.image,star.rect)
+        #self.stars_update()
+        self.stars.draw(self.screen)
+
         pygame.display.flip()#让最近绘制的屏幕可见
+        
         
 if __name__=="__main__":
     #创建游戏实例并运行游戏
