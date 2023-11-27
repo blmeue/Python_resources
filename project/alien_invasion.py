@@ -142,9 +142,9 @@ class AlienInvasion:
             if event.type==pygame.QUIT:
                 self.sb.write_high_score()
                 sys.exit()
-            elif event.type==pygame.KEYDOWN:
+            elif event.type==pygame.KEYDOWN:#按下
                 self._check_keydown_events(event)
-            elif event.type==pygame.KEYUP:
+            elif event.type==pygame.KEYUP:#松开
                 self._check_keyup_events(event)
             elif event.type==pygame.MOUSEBUTTONDOWN:#监视Play按钮
                 mouse_pos=pygame.mouse.get_pos()
@@ -155,7 +155,6 @@ class AlienInvasion:
         
     def _check_play_button(self,mouse_pos):
         """在玩家单击Play按钮时开始新游戏"""
-        
         button_clicked=self.play_button.rect.collidepoint(mouse_pos)
         #当玩家单击了Play按钮且游戏当前处于非活动状态时
         if button_clicked and not self.game_active:
@@ -232,7 +231,7 @@ class AlienInvasion:
         """在游戏背景中随机放星星"""
         #更新星星的位置
         self.stars.empty()
-        for _ in range(10):
+        for _ in range(randint(1,10)):
                 star = Stars(self)
                 self.stars.add(star)
             
