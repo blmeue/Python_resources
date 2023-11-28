@@ -282,11 +282,7 @@ class AlienInvasion:
             self.play_button.draw_button()
         
         #绘制星星
-        #for star in self.stars:
-            #self.screen.blit(star.image,star.rect)
-        #self.stars_update()
         self.stars.draw(self.screen)
-
         pygame.display.flip()#让最近绘制的屏幕可见
         
         

@@ -52,7 +52,7 @@ class Scoreboard:
         """将得分渲染为图像"""
         rounded_score=round(self.stats.score,-1)#对分数进行舍入,使得看到的得分是10的整数倍
         score_str=f"{rounded_score:,}"
-        score_str=str(self.stats.score)#将数值转换为字符串
+        #score_str=str(self.stats.score)#将数值转换为字符串
         self.score_image=self.font.render(score_str,True,self.text_color,self.settings.bg_color)
         
         #在屏幕右上角显示得分

@@ -19,4 +19,5 @@ class Stars(Sprite):
         self.rect.y=randint(0,ai_game.settings.screen_height)
         
         self.x=float(self.rect.x)
+        self.y=float(self.rect.y)
         

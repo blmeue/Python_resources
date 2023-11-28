@@ -516,7 +516,6 @@ None
 - [第三部分 使用Mermaid绘制程序类图](#第三部分)
 
 ```mermaid
-
 classDiagram
     class Block{
         +int width
