@@ -299,131 +299,16 @@ Python的json模块提供了对json文件的基本操作，包括读取、写入
 
 ## 第3章 软件测试
 
-### 3.1 测试Alien类
-
-(1) 测试用例
-
-```python
-import pytest
-import pygame
-from alien import Alien
-class MockAIGame:
-    """ Mocking the ai_game object that is expected to be passed to Alien"""
-    def __init__(self, screen, settings):
-        """初始化"""
-        self.screen = screen
-        self.settings = settings
-class MockSettings:
-    """ Mocking the settings object that is expected to be passed to Alien"""
-    def __init__(self, alien_speed, fleet_direction):
-        """初始化"""
-        self.alien_speed = alien_speed
-        self.fleet_direction = fleet_direction
-@pytest.fixture
-def ai_game():
-    """ 返回一个mock的ai_game对象"""
-    screen = pygame.display.set_mode((800, 600))
-    settings = MockSettings(alien_speed=1.0, fleet_direction=1)
-    return MockAIGame(screen, settings)
-@pytest.mark.parametrize("alien_speed, fleet_direction, expected_x", [
-    # ID: HappyPath-MovingRight
-    (1.0, 1, 31.0),
-    # ID: HappyPath-MovingLeft
-    (1.0, -1, 29.0),
-])
-def test_alien_update(ai_game, alien_speed, fleet_direction, expected_x):
-    """测试Alien类的update"""
-    # Arrange
-    ai_game.settings.alien_speed = alien_speed
-    ai_game.settings.fleet_direction = fleet_direction
-    alien = Alien(ai_game)
-    alien.x = 30.0  # Starting from 30 for testing
-    alien.update()
-    assert alien.x == expected_x
-    assert alien.rect.x == int(expected_x)
-@pytest.mark.parametrize("alien_position, fleet_direction, expected", [
-    # ID: HappyPath-NotAtEdge
-    ((100, 100), 1, False),
-    # ID: EdgeCase-AtRightEdge
-    ((770, 100), 1, True),
-])
-def test_alien_check_edges(ai_game, alien_position, fleet_direction, expected):
-    """测试Alien类的_check_edges"""
-    ai_game.settings.fleet_direction = fleet_direction
-    alien = Alien(ai_game)
-    alien.rect.x, alien.rect.y = alien_position
-    at_edge = alien.check_edges()
-    assert at_edge == expected
-```
-
-(2) 测试报告
-![test_alien](./../images/test_alien.png)
-
-### 3.2 测试按键按下
-
-(1) 测试用例
-
-```python
-from alien_invasion import AlienInvasion
-import pygame 
-import pytest
-import sys
-
-def test_keydown_event_moving_right():
-    """测试按键按下向右键事件的处理"""
-    ai_game=AlienInvasion()
-    event=pygame.event.Event(pygame.KEYDOWN,key=pygame.K_RIGHT)
-    ai_game._check_keydown_events(event)
-    
-    #在这里添加断言来检查按键事件的处理逻辑是否符合预期
-    assert ai_game.ship.moving_right is True
-    
-def test_keydown_event_moving_left():
-    """测试按键按下向左键事件的处理"""
-    ai_game=AlienInvasion()
-    event=pygame.event.Event(pygame.KEYDOWN,key=pygame.K_LEFT)
-    ai_game._check_keydown_events(event)
-    
-    #在这里添加断言来检查按键事件的处理逻辑是否符合预期
-    assert ai_game.ship.moving_left is True
-
-```
-
-(2) 测试报告
-
-![test_check_events](../images/test_check_events.png)
-
-### 3.3 测试按键松开
-
-(1) 测试用例
-
-```python
-from alien_invasion import AlienInvasion
-import pygame 
-import pytest
-import sys
-
-def test_keyup_event_moving_right():
-    """测试按键松开向右键事件的处理"""
-    ai_game=AlienInvasion()
-    event=pygame.event.Event(pygame.KEYUP,key=pygame.K_RIGHT)
-    ai_game._check_keyup_events(event)
-    
-    #在这里添加断言来检查按键事件的处理逻辑是否符合预期
-    assert ai_game.ship.moving_right is False
-    
-def test_keyup_event_moving_left():
-    """测试按键松开向左键事件的处理"""
-    ai_game=AlienInvasion()
-    event=pygame.event.Event(pygame.KEYUP,key=pygame.K_LEFT)
-    ai_game._check_keyup_events(event)
-    
-    #在这里添加断言来检查按键事件的处理逻辑是否符合预期
-    assert ai_game.ship.moving_left is False
-```
-
-(2) 测试报告
-![test_check_events](../images/test_check_events.png)
+|\#| 测试目标| 输入 | 预期结果 | 测试结果 |
+| --- | --------- | ----- | ---------------- | ----------------- |
+| 1 |测试AlienInvasion类的check_keydown_events方法——按下向右键|ai_game 为 AlienInvasion 实例，模拟 KEYDOWN 事件，按下右箭头键|ai_game.ship.moving_right 属性为 True |通过|
+| 2 |测试AlienInvasion类的check_keydown_events方法——按下向左键|ai_game 为 AlienInvasion 实例，模拟 KEYDOWN 事件，按下左箭头键|ai_game.ship.moving_left 属性为 True|通过|
+| 3 |测试AlienInvasion类的check_keyup_events方法——松开向右键|ai_game 为 AlienInvasion 实例，模拟 KEYUP 事件，松开右箭头键|ai_game.ship.moving_right属性为False|通过|
+| 4 |测试AlienInvasion类的check_keyup_events方法——松开向左键|ai_game 为 AlienInvasion 实例，模拟 KEYUP 事件，松开左箭头键|ai_game.ship.moving_left 属性为 False|通过|
+| 5 |测试button类——测试按键的创建|msg="Play", expected=(0, 135, 0)|Button 对象被正确创建，msg_image 不为 None，按钮属性正确设置|通过|
+| 6 |测试button类——测试按键的可视化|msg="Play", color=(255, 0, 0), font_size=48|按钮的颜色、字体大小被正确设置|通过|
+| 7|测试settings类——测试increase_speed方法|speedup_scale=0.5, score_scale=0.5|expected_ship_speed=0.75，expected_bullet_speed=1.25，expected_alien_speed=0.5，expected_alien_points=25|通过|
+| 8 |测试settings类——测试 initialize_dynamic_settings 方法|无|将速度和方向属性重置到默认值|通过|
 
 ## 结论
 
