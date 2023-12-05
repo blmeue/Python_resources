@@ -20,7 +20,7 @@ class Ship(Sprite):
         #每艘新飞船都放在屏幕底部的中央
         # self.rect.midbottom=self.screen_rect.midbottom
         #每艘飞船都放在屏幕底部的左侧
-        self.rect.bottomleft=self.screen_rect.bottomleft
+        self.rect.midleft=self.screen_rect.midleft
         
         #在飞船的属性x中存储一个浮点数
         self.x=float(self.rect.x)
@@ -57,6 +57,6 @@ class Ship(Sprite):
         """让飞船在屏幕底部的左侧"""
         #底部中央
         # self.rect.midbottom=self.screen_rect.midbottom
-        self.rect.bottomleft=self.screen_rect.bottomleft
+        self.rect.midleft=self.screen_rect.midleft
         self.x=float(self.rect.x)
         self.y=float(self.rect.y)
