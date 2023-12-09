@@ -221,6 +221,7 @@ classDiagram
 
 （1）数据持久化
 Python的json模块提供了对json文件的基本操作，包括读取、写入、更新和检索。为了保留玩家的最高分记录，需要实现数据持久化。将最高分保存到json文件中，以便后续读取和更新最高分。关键代码如下：
+
 ```python
     def check_high_score(self):
         """检查是否诞生了新的最高分"""
@@ -233,8 +234,10 @@ Python的json模块提供了对json文件的基本操作，包括读取、写入
         with open(filename,'w') as file:
             json.dump(self.stats.high_score,file)
 ```
+
 （2）用户输入与控制
-通过键盘和鼠标实现宇航员的移动和射击，为玩家提供直观的游戏操控体验。确保对用户输入的实时响应，以及相应事件的正确处理。关键代码如下：
+通过键盘和鼠标实现宇航员的移动和射击，为玩家提供直观的游戏操控体验。确保对用户输入的实时响应，以及相应事件的正确处理。部分关键代码如下：
+
 ```python
     def _check_keydown_events(self,event):
         """响应按下"""
@@ -253,20 +256,11 @@ Python的json模块提供了对json文件的基本操作，包括读取、写入
             self.ship.moving_up=True
         elif event.key==pygame.K_DOWN:
             self.ship.moving_down=True
-    def _check_keyup_events(self,event):
-        """响应释放"""
-        if event.key==pygame.K_RIGHT:#玩家释放向右键时moving_right为False
-            self.ship.moving_right=False
-        elif event.key==pygame.K_LEFT:
-            self.ship.moving_left=False
-        elif event.key==pygame.K_UP:
-            self.ship.moving_up=False
-        elif event.key==pygame.K_DOWN:
-            self.ship.moving_down=False
-            
 ```
+
 （3）碰撞检测算法
-在外星人入侵游戏中，碰撞检测算法是确保游戏元素交互正确的关键部分。当宇航员的位置与外星人的位置重叠时，触发碰撞检测；当子弹的位置与外星人的位置重叠时，触发碰撞检测；防止游戏元素越界，即超出游戏界面的边界。关键代码如下：
+在外星人入侵游戏中，碰撞检测算法是确保游戏元素交互正确的关键部分。当宇航员的位置与外星人的位置重叠时，触发碰撞检测；当子弹的位置与外星人的位置重叠时，触发碰撞检测；防止游戏元素越界，即超出游戏界面的边界。部分关键代码如下：
+
 ```python
     def _check_bullet_alien_collisions(self):
         """响应子弹和外星人的碰撞"""
@@ -288,27 +282,37 @@ Python的json模块提供了对json文件的基本操作，包括读取、写入
             #提高等级，整个外星舰队都被击落，就提高一个等级
             self.stats.level += 1
             self.sb.prep_level()
-    def _check_aliens_bottom(self):
-        """检查是否有外星人到达了屏幕的下边缘"""
-        for alien in self.aliens.sprites():
-            if alien.rect.bottom >=self.settings.screen_height:
-                #像飞船被撞到一样进行处理
-                self._ship_hit()
-                break
 ```
 
 ## 第3章 软件测试
 
+1. 测试AlienInvasion类的check_keydown_events方法
+
 |\#| 测试目标| 输入 | 预期结果 | 测试结果 |
 | --- | --------- | ----- | ---------------- | ----------------- |
-| 1 |测试AlienInvasion类的check_keydown_events方法——按下向右键|ai_game 为 AlienInvasion 实例，模拟 KEYDOWN 事件，按下右箭头键|ai_game.ship.moving_right 属性为 True |通过|
-| 2 |测试AlienInvasion类的check_keydown_events方法——按下向左键|ai_game 为 AlienInvasion 实例，模拟 KEYDOWN 事件，按下左箭头键|ai_game.ship.moving_left 属性为 True|通过|
-| 3 |测试AlienInvasion类的check_keyup_events方法——松开向右键|ai_game 为 AlienInvasion 实例，模拟 KEYUP 事件，松开右箭头键|ai_game.ship.moving_right属性为False|通过|
-| 4 |测试AlienInvasion类的check_keyup_events方法——松开向左键|ai_game 为 AlienInvasion 实例，模拟 KEYUP 事件，松开左箭头键|ai_game.ship.moving_left 属性为 False|通过|
-| 5 |测试button类——测试按键的创建|msg="Play", expected=(0, 135, 0)|Button 对象被正确创建，msg_image 不为 None，按钮属性正确设置|通过|
-| 6 |测试button类——测试按键的可视化|msg="Play", color=(255, 0, 0), font_size=48|按钮的颜色、字体大小被正确设置|通过|
-| 7|测试settings类——测试increase_speed方法|speedup_scale=0.5, score_scale=0.5|expected_ship_speed=0.75，expected_bullet_speed=1.25，expected_alien_speed=0.5，expected_alien_points=25|通过|
-| 8 |测试settings类——测试 initialize_dynamic_settings 方法|无|将速度和方向属性重置到默认值|通过|
+| 1 |按下向右键|ai_game 为 AlienInvasion 实例，模拟 KEYDOWN 事件，按下右箭头键|ai_game.ship.moving_right 属性为 True |通过|
+| 2 |按下向左键|ai_game 为 AlienInvasion 实例，模拟 KEYDOWN 事件，按下左箭头键|ai_game.ship.moving_left 属性为 True|通过|
+
+2. 测试AlienInvasion类的check_keyup_events方法
+
+|\#| 测试目标| 输入 | 预期结果 | 测试结果 |
+| --- | --------- | ----- | ---------------- | ----------------- |
+| 1 |松开向右键|ai_game 为 AlienInvasion 实例，模拟 KEYUP 事件，松开右箭头键|ai_game.ship.moving_right属性为False|通过|
+| 2 |松开向左键|ai_game 为 AlienInvasion 实例，模拟 KEYUP 事件，松开左箭头键|ai_game.ship.moving_left 属性为 False|通过|
+
+3. 测试button类
+
+|\#| 测试目标| 输入 | 预期结果 | 测试结果 |
+| --- | --------- | ----- | ---------------- | ----------------- |
+| 1 |测试按键的创建|msg="Play", expected=(0, 135, 0)|Button 对象被正确创建，msg_image 不为 None，按钮属性正确设置|通过|
+| 2 |测试按键的可视化|msg="Play", color=(255, 0, 0), font_size=48|按钮的颜色、字体大小被正确设置|通过|
+
+4. 测试settings类
+
+|\#| 测试目标| 输入 | 预期结果 | 测试结果 |
+| --- | --------- | ----- | ---------------- | ----------------- |
+| 1|测试increase_speed方法|speedup_scale=0.5, score_scale=0.5|expected_ship_speed=0.75，expected_bullet_speed=1.25，expected_alien_speed=0.5，expected_alien_points=25|通过|
+| 2 |测试 initialize_dynamic_settings 方法|无|将速度和方向属性重置到默认值|通过|
 
 ## 结论
 
